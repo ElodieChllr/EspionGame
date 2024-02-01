@@ -156,6 +156,17 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""up"",
+                    ""id"": ""482096f8-b560-4f76-9e7f-d4c31b450062"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""backward"",
                     ""id"": ""3922cfa6-11f4-4cb3-8cc0-889fbbd08afa"",
                     ""path"": ""<Gamepad>/leftStick/down"",
