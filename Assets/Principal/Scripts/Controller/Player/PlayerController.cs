@@ -27,20 +27,16 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
-        Jump();
+      
     }
 
     private void Move()
     {
         Vector3 movement = playerMap.Player.Movement.ReadValue<Vector3>();
-        rb_player.velocity = new Vector3(movement.x * moveSpeed, 0, movement.z * moveSpeed);
+        rb_player.velocity = new Vector3(movement.x * moveSpeed, movement.y * jumpSpeed, movement.z * moveSpeed);
     }
 
-    private void Jump()
-    {
-        Vector3 movement = playerMap.Player.Movement.ReadValue<Vector3>();
-        rb_player.velocity = new Vector3(0, movement.y * jumpSpeed, 0); 
-    }
+
 
     private void OnEnable()
     {
