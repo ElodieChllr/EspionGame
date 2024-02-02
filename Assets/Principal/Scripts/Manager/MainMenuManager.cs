@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     void Start()
     {
         
@@ -15,4 +15,16 @@ public class MainMenuManager : MonoBehaviour
     {
         
     }
+
+    public void MyLoadScene(int idScene)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(idScene);
+    }
+
+    public void button_exit()
+    {
+        Application.Quit();
+        //UnityEditor.EditorApplication.isPlaying = false;
+    }
+
 }
