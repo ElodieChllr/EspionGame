@@ -10,11 +10,14 @@ public class PlayerController : MonoBehaviour
 
     private float moveSpeed = 5f;
     private float sprintSpeed = 10f;
-    private float jumpingPower = 5f;
+    public float jumpingPower;
     private float rotationSpeed = 2f;
+
 
     private bool isJumping;
     private bool isGrounded;
+  
+    public LayerMask groundLayer;
 
     PlayerMap playerMap;
 
@@ -22,7 +25,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
+        isGrounded = true;
+        rb_player = GetComponent<Rigidbody>();
     }
     private void Awake()
     {
@@ -35,12 +39,17 @@ public class PlayerController : MonoBehaviour
         Move();
         //RecupeObject();
         RotateCamera();
-        Jump();
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.1f);
+
+        // isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.1f);
+        if (isJumping == true)
+        {
+            rb_player.AddForce(new Vector3(0, jumpingPower, 0), ForceMode.Impulse);
+        }
+
     }
     public void RotateCamera()
     {
-        Vector2 rotationInput = playerMap.Player.Camera.ReadValue<Vector2>();        
+        Vector2 rotationInput = playerMap.Player.Camera.ReadValue<Vector2>();
         cameraPivot.Rotate(Vector3.up, rotationInput.x * rotationSpeed, Space.World);
     }
 
@@ -48,7 +57,7 @@ public class PlayerController : MonoBehaviour
     public void Move()
     {
         Vector3 movement = playerMap.Player.Movement.ReadValue<Vector3>();
-        rb_player.velocity = new Vector3(movement.x * moveSpeed,0, movement.z * moveSpeed);
+        rb_player.velocity = new Vector3(movement.x * moveSpeed, 0, movement.z * moveSpeed);
 
         if (playerInput.actions["Sprint"].IsInProgress())
         {
@@ -61,13 +70,16 @@ public class PlayerController : MonoBehaviour
 
     //}
 
-    public void Jump()
+    public void Jump(InputAction.CallbackContext context)
     {
-        if (isGrounded && playerInput.actions["Jump"].triggered)
+        if (isGrounded == true && context.performed)
         {
-            rb_player.AddForce(Vector3.up * jumpingPower, ForceMode.Impulse);
+
             isJumping = true;
+            isGrounded = false;
+            Debug.Log("jump");
         }
+       
     }
 
 
@@ -80,4 +92,22 @@ public class PlayerController : MonoBehaviour
     {
         playerMap.Disable();
     }
+
+
+
+
+
+
+     private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            isGrounded = true;
+            Debug.Log("isGrounded");
+        }
+      
+    }
+  
 }
+
+
