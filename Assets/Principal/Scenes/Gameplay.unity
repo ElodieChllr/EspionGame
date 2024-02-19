@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 1166268}
   - component: {fileID: 1166267}
   - component: {fileID: 1166266}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 211944670}
   - component: {fileID: 211944669}
   - component: {fileID: 211944668}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 298083880}
   - component: {fileID: 298083879}
   - component: {fileID: 298083878}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1119,7 +1119,7 @@ GameObject:
   - component: {fileID: 349438311}
   - component: {fileID: 349438310}
   - component: {fileID: 349438309}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1221,7 +1221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 396476007}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cams
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1323,7 +1323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 479868445}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Nuke Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1360,7 +1360,7 @@ GameObject:
   - component: {fileID: 531195214}
   - component: {fileID: 531195213}
   - component: {fileID: 531195212}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1465,7 +1465,7 @@ GameObject:
   - component: {fileID: 660970168}
   - component: {fileID: 660970167}
   - component: {fileID: 660970166}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1691,7 +1691,7 @@ GameObject:
   - component: {fileID: 816312775}
   - component: {fileID: 816312774}
   - component: {fileID: 816312773}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1930,7 +1930,7 @@ GameObject:
   - component: {fileID: 879371883}
   - component: {fileID: 879371882}
   - component: {fileID: 879371881}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2287,7 +2287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 927090979}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ---Blocking Map---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2326,7 +2326,7 @@ GameObject:
   - component: {fileID: 1055236200}
   - component: {fileID: 1055236199}
   - component: {fileID: 1055236198}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2525,7 +2525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1076394949}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Mails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2769,7 +2769,7 @@ GameObject:
   - component: {fileID: 1247842055}
   - component: {fileID: 1247842054}
   - component: {fileID: 1247842053}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2871,7 +2871,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1344817832}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Corridor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2988,7 +2988,7 @@ GameObject:
   - component: {fileID: 1480057770}
   - component: {fileID: 1480057769}
   - component: {fileID: 1480057768}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3170,7 +3170,7 @@ GameObject:
   - component: {fileID: 1691095221}
   - component: {fileID: 1691095220}
   - component: {fileID: 1691095219}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3275,7 +3275,7 @@ GameObject:
   - component: {fileID: 1714982706}
   - component: {fileID: 1714982705}
   - component: {fileID: 1714982704}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3380,7 +3380,7 @@ GameObject:
   - component: {fileID: 1771979323}
   - component: {fileID: 1771979322}
   - component: {fileID: 1771979321}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3482,7 +3482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1775610795}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3520,7 +3520,7 @@ GameObject:
   - component: {fileID: 1798407704}
   - component: {fileID: 1798407703}
   - component: {fileID: 1798407702}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3791,7 +3791,7 @@ GameObject:
   - component: {fileID: 1900113116}
   - component: {fileID: 1900113115}
   - component: {fileID: 1900113114}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4017,7 +4017,7 @@ GameObject:
   - component: {fileID: 1941059627}
   - component: {fileID: 1941059626}
   - component: {fileID: 1941059625}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4122,7 +4122,7 @@ GameObject:
   - component: {fileID: 1968043281}
   - component: {fileID: 1968043280}
   - component: {fileID: 1968043279}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4227,7 +4227,7 @@ GameObject:
   - component: {fileID: 2123060908}
   - component: {fileID: 2123060907}
   - component: {fileID: 2123060906}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Walls (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
