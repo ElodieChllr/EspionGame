@@ -54,7 +54,7 @@
                     "name": "Camera",
                     "type": "Value",
                     "id": "d5f1d39c-1ad9-4de9-92b8-7045577d8746",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -260,7 +260,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "2D Vector(manette)",
                     "id": "a24ac059-fb7b-43e1-bf6d-85837000255b",
                     "path": "2DVector",
                     "interactions": "",
@@ -307,6 +307,61 @@
                     "name": "right",
                     "id": "4fca18d4-1e7f-475a-b0d9-246a00db113d",
                     "path": "<Gamepad>/rightStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector(souris)",
+                    "id": "a1507eac-0ad5-495a-8a01-2f4d42d7af0a",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Camera",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "94bc3754-ecf5-466b-ba2a-fbe147c86f05",
+                    "path": "<Mouse>/delta/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "bb29bd94-af94-48a9-9cfa-ab7bfe06ea13",
+                    "path": "<Mouse>/delta/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "b14535f3-c3e2-4fd8-ba0a-6857b7f66270",
+                    "path": "<Mouse>/delta/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "6c84550b-cf69-47e5-83b4-c2d71f71aa77",
+                    "path": "<Mouse>/delta/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

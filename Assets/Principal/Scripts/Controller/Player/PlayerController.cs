@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     public void RotateCamera()
     {
         Vector2 rotationInput = playerMap.Player.Camera.ReadValue<Vector2>();
-        cameraPivot.Rotate(Vector3.up, rotationInput.x * rotationSpeed, Space.World);
+        cameraPivot.Rotate(Vector3.up, rotationInput.x * rotationSpeed, Space.World);        
     }
 
 
