@@ -39,13 +39,6 @@ public class PlayerController : MonoBehaviour
         Move();
         //RecupeObject();
         RotateCamera();
-
-        // isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.1f);
-        if (isJumping == true)
-        {
-            rb_player.AddForce(new Vector3(0, jumpingPower, 0), ForceMode.Impulse);
-        }
-
     }
     public void RotateCamera()
     {
@@ -74,13 +67,30 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded == true && context.performed)
         {
-
             isJumping = true;
             isGrounded = false;
             Debug.Log("jump");
+
+            if (isJumping == true)
+            {
+               rb_player.AddForce(new Vector3(0, jumpingPower, 0), ForceMode.Impulse);
+            }
+            
         }
        
     }
+     private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            isGrounded = true;
+            isJumping = false;
+            Debug.Log("isGrounded");
+        }
+      
+    }
+
+    
 
 
     private void OnEnable()
@@ -98,15 +108,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-     private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.layer == 6)
-        {
-            isGrounded = true;
-            Debug.Log("isGrounded");
-        }
-      
-    }
   
 }
 
