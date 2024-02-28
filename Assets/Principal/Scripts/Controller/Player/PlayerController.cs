@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     public void Move()
     {
         Vector3 movement = playerMap.Player.Movement.ReadValue<Vector3>();
-        rb_player.velocity = new Vector3(movement.x * moveSpeed, 0, movement.z * moveSpeed);
+        rb_player.velocity = new Vector3(movement.x * moveSpeed, rb_player.velocity.y, movement.z * moveSpeed);
 
         if (playerInput.actions["Sprint"].IsInProgress())
         {
@@ -73,9 +73,14 @@ public class PlayerController : MonoBehaviour
 
             if (isJumping == true)
             {
-               rb_player.AddForce(new Vector3(0, jumpingPower, 0), ForceMode.Impulse);
+                rb_player.AddForce(new Vector3(0, jumpingPower, 0), ForceMode.Impulse);
+             
             }
-            
+            if (rb_player.velocity.y < 0f)
+            {
+                rb_player.velocity += Vector3.down * (Physics.gravity.y * -2f) * Time.fixedDeltaTime;
+            }
+
         }
        
     }
