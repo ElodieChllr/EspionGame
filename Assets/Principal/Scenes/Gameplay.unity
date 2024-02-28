@@ -991,7 +991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb_player: {fileID: 311562657}
   cameraPivot: {fileID: 311562661}
-  jumpingPower: 500
+  jumpingPower: 50
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
