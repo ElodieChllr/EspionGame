@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
             }
             if (rb_player.velocity.y < 0f)
             {
-                rb_player.velocity += Vector3.down * (Physics.gravity.y * -2f) * Time.fixedDeltaTime;
+                rb_player.velocity += Vector3.down * (Physics.gravity.y * -15f) * Time.fixedDeltaTime;
             }
 
         }
