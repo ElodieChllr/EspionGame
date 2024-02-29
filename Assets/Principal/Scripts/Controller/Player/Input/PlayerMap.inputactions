@@ -53,8 +53,8 @@
                 {
                     "name": "Camera",
                     "type": "Value",
-                    "id": "d5f1d39c-1ad9-4de9-92b8-7045577d8746",
-                    "expectedControlType": "Vector3",
+                    "id": "51d53326-5ee0-4f61-ae4d-445a7e8c3af7",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -261,7 +261,7 @@
                 },
                 {
                     "name": "2D Vector(manette)",
-                    "id": "a24ac059-fb7b-43e1-bf6d-85837000255b",
+                    "id": "27ed15ff-e8e4-42fb-b786-045aad8dc927",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -272,18 +272,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "a5ac0b11-cbc4-4053-9aca-763f8ad580e6",
-                    "path": "<Gamepad>/rightStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Camera",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "88c2babb-8d1c-4e5b-a8ff-be4372151e24",
+                    "id": "a07b726e-fb71-48f7-a8e3-a2391d06513c",
                     "path": "<Gamepad>/rightStick/down",
                     "interactions": "",
                     "processors": "",
@@ -293,9 +282,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "left",
-                    "id": "ed3b7945-291a-4308-92ba-7ecf724375d3",
-                    "path": "<Gamepad>/rightStick/left",
+                    "name": "down",
+                    "id": "1d698c19-eeda-47d9-89cb-f7ce847ae0ed",
+                    "path": "<Gamepad>/rightStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -304,8 +293,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "right",
-                    "id": "4fca18d4-1e7f-475a-b0d9-246a00db113d",
+                    "name": "left",
+                    "id": "4b98d71b-fc3d-4808-855a-501dc12b21a3",
                     "path": "<Gamepad>/rightStick/right",
                     "interactions": "",
                     "processors": "",
@@ -315,8 +304,19 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "right",
+                    "id": "d75d9cfb-410d-453a-8de1-80eca53189cd",
+                    "path": "<Gamepad>/rightStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "2D Vector(souris)",
-                    "id": "a1507eac-0ad5-495a-8a01-2f4d42d7af0a",
+                    "id": "064a386e-9cca-4d64-bc7b-da0e7cfec14b",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -327,7 +327,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "94bc3754-ecf5-466b-ba2a-fbe147c86f05",
+                    "id": "cd6d866a-b114-4972-bea4-40fd218cd759",
                     "path": "<Mouse>/delta/down",
                     "interactions": "",
                     "processors": "",
@@ -338,7 +338,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "bb29bd94-af94-48a9-9cfa-ab7bfe06ea13",
+                    "id": "9250b4bb-463c-41b5-a625-b4c480adbd40",
                     "path": "<Mouse>/delta/up",
                     "interactions": "",
                     "processors": "",
@@ -349,8 +349,8 @@
                 },
                 {
                     "name": "left",
-                    "id": "b14535f3-c3e2-4fd8-ba0a-6857b7f66270",
-                    "path": "<Mouse>/delta/left",
+                    "id": "3f056b66-0ac7-498c-8d38-36bfb50cd97e",
+                    "path": "<Mouse>/delta/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -360,8 +360,8 @@
                 },
                 {
                     "name": "right",
-                    "id": "6c84550b-cf69-47e5-83b4-c2d71f71aa77",
-                    "path": "<Mouse>/delta/right",
+                    "id": "511ce682-c771-4dc3-b1bf-523e20063e1a",
+                    "path": "<Mouse>/delta/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -9,10 +9,14 @@ public class PlayerController : MonoBehaviour
     public Transform cameraPivot;
 
     private float moveSpeed = 5f;
-    private float sprintSpeed = 10f;
+    public float sprintSpeed = 10f;
     public float jumpingPower;
     private float rotationSpeed = 2f;
 
+
+    private Transform cameraMainTransform;
+
+    private Vector3 offset;
 
     private bool isJumping;
     private bool isGrounded;
@@ -31,31 +35,65 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerMap = new PlayerMap();
+        cameraMainTransform = Camera.main.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
+        Move_and_Cam();
+        Sprint();
         //RecupeObject();
-        RotateCamera();
+        //RotateCamera();
     }
-    public void RotateCamera()
+    //public void RotateCamera()
+    //{
+    //    Vector2 rotationInput = playerMap.Player.Camera.ReadValue<Vector2>();
+    //    cameraPivot.Rotate(Vector3.up, rotationInput.x * rotationSpeed, Space.World);        
+    //}
+
+    public void Sprint()
     {
-        Vector2 rotationInput = playerMap.Player.Camera.ReadValue<Vector2>();
-        cameraPivot.Rotate(Vector3.up, rotationInput.x * rotationSpeed, Space.World);        
+        if (playerInput.actions["Sprint"].IsInProgress())
+        {
+            Vector3 movement = playerMap.Player.Movement.ReadValue<Vector3>();
+            rb_player.velocity = new Vector3(movement.x * sprintSpeed, movement.y * jumpingPower, movement.z * sprintSpeed);
+            Debug.Log("Sprint");
+        }
     }
-
-
-    public void Move()
+    public void Move_and_Cam()
     {
         Vector3 movement = playerMap.Player.Movement.ReadValue<Vector3>();
         rb_player.velocity = new Vector3(movement.x * moveSpeed, rb_player.velocity.y, movement.z * moveSpeed);
 
-        if (playerInput.actions["Sprint"].IsInProgress())
+        
+
+
+        
+        movement.Normalize();
+
+        
+        movement = Quaternion.Euler(0f, cameraMainTransform.eulerAngles.y, 0f) * movement;
+
+        
+        rb_player.velocity = movement * moveSpeed;
+
+        
+        if (movement != Vector3.zero)
         {
-            rb_player.velocity = new Vector3(movement.x * sprintSpeed, movement.y * jumpingPower, movement.z * sprintSpeed);
+            float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
+            Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
+
+        
+        Vector3 desiredPosition = transform.position - offset;
+        Vector3 smoothedPosition = Vector3.Lerp(cameraMainTransform.position, desiredPosition, Time.deltaTime * 5f);
+        cameraMainTransform.position = smoothedPosition;
+
+        
+        Quaternion lookRotation = Quaternion.LookRotation(transform.position - cameraMainTransform.position, Vector3.up);
+        cameraMainTransform.rotation = Quaternion.Slerp(cameraMainTransform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
     //private void RecupeObject()
