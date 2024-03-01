@@ -36,18 +36,21 @@ public class PlayerController : MonoBehaviour
         playerMap = new PlayerMap();
         cameraMainTransform = Camera.main.transform;
     }
-
+    private void FixedUpdate()
+    {
+        Move_and_Cam();
+    }
     // Update is called once per frame
     void Update()
     {
-        Move_and_Cam();
+        
     }
 
     public void Move_and_Cam()
     {
         //Move
         Vector3 movement = playerMap.Player.Movement.ReadValue<Vector3>();
-        rb_player.velocity = new Vector3(movement.x * moveSpeed, rb_player.velocity.y, movement.z * moveSpeed);
+        rb_player.velocity = new Vector3(movement.x * moveSpeed * Time.fixedDeltaTime, rb_player.velocity.y * Time.fixedDeltaTime, movement.z * moveSpeed * Time.fixedDeltaTime);
 
 
 
