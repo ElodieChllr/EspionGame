@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,23 +20,30 @@ public class PlayerController : MonoBehaviour
     private Transform cameraMainTransform;
 
     private Vector3 offset;
+    private PlayerMap controls;
+    private Vector2 tiltValue;
+    private Animator animator;
 
-    
-  
-    
+
+
 
     PlayerMap playerMap;
 
     public PlayerInput playerInput;
 
+    
+
     void Start()
     {
+        animator = GetComponent<Animator>();    
         rb_player = GetComponent<Rigidbody>();
     }
     private void Awake()
     {
         playerMap = new PlayerMap();
         cameraMainTransform = Camera.main.transform;
+        controls = new PlayerMap();
+        controls.Enable();
     }
     private void FixedUpdate()
     {
@@ -43,8 +52,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        tiltValue = controls.Player.Movement.ReadValue<Vector3>();
+        float tiltX = tiltValue.x;
+        float tiltY = tiltValue.y;
+
+        // Utiliser tiltX et tiltY pour contrôler votre jeu en fonction de l'inclinaison du joystick
+        Debug.Log("Tilt X: " + tiltX + ", Tilt Y: " + tiltY);
+        AnimManager(tiltX, tiltY);
     }
+
 
     public void Move_and_Cam()
     {
@@ -127,9 +143,20 @@ public class PlayerController : MonoBehaviour
 
 
 
+    public void AnimManager(float X, float Z)
+    {
+        Vector2 velocity = new Vector2(X,Z); // recup les joysticks
+        float animationMove = velocity.magnitude;
+        if(velocity.magnitude >=1f)
+        {
+            velocity= velocity.normalized;
+        }
+        animator.SetFloat("Player_Velocity", animationMove);
+    }
 
 
-  
 }
+
+
 
 
