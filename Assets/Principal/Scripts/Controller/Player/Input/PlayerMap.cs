@@ -80,6 +80,15 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Photo"",
+                    ""type"": ""Button"",
+                    ""id"": ""8e07492e-859b-4bae-84cb-5c121b266613"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -240,7 +249,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""76f50a5c-3b9c-4420-9b54-065e1c0d1645"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -390,6 +399,28 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""action"": ""Camera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4c3931c-cd77-4369-86a6-151af7926b3c"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Photo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9f6bb66c-3e33-4a51-b646-08e769e4f38e"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Photo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -404,6 +435,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
+        m_Player_Photo = m_Player.FindAction("Photo", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -471,6 +503,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Camera;
+    private readonly InputAction m_Player_Photo;
     public struct PlayerActions
     {
         private @PlayerMap m_Wrapper;
@@ -481,6 +514,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Camera => m_Wrapper.m_Player_Camera;
+        public InputAction @Photo => m_Wrapper.m_Player_Photo;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -508,6 +542,9 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
             @Camera.started += instance.OnCamera;
             @Camera.performed += instance.OnCamera;
             @Camera.canceled += instance.OnCamera;
+            @Photo.started += instance.OnPhoto;
+            @Photo.performed += instance.OnPhoto;
+            @Photo.canceled += instance.OnPhoto;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -530,6 +567,9 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
             @Camera.started -= instance.OnCamera;
             @Camera.performed -= instance.OnCamera;
             @Camera.canceled -= instance.OnCamera;
+            @Photo.started -= instance.OnPhoto;
+            @Photo.performed -= instance.OnPhoto;
+            @Photo.canceled -= instance.OnPhoto;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -555,5 +595,6 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
+        void OnPhoto(InputAction.CallbackContext context);
     }
 }
