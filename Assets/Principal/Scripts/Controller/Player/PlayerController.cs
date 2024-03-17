@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 tiltValue;
     private Animator animator;
 
+    public bool isJumpPressed;
 
 
 
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();    
         rb_player = GetComponent<Rigidbody>();
+        isJumpPressed = false;
     }
     private void Awake()
     {
@@ -108,27 +110,19 @@ public class PlayerController : MonoBehaviour
 
     //}
 
-    //public void Jump(InputAction.CallbackContext context)
-    //{
-    //    if (isGrounded == true && context.performed)
-    //    {
-    //        isJumping = true;
-    //        isGrounded = false;
-    //        Debug.Log("jump");
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+        
+            isJumpPressed = true;
 
-    //        if (isJumping == true)
-    //        {
-    //            rb_player.AddForce(new Vector3(0, jumpingPower, 0), ForceMode.Impulse);
-             
-    //        }
-    //        if (rb_player.velocity.y < 0f)
-    //        {
-    //            rb_player.velocity += Vector3.down * (Physics.gravity.y * -15f) * Time.fixedDeltaTime;
-    //        }
-
-    //    }
-       
-    //}   
+        }
+        if(context.canceled)
+        {
+            isJumpPressed=false;
+        }
+    }
 
 
     private void OnEnable()
