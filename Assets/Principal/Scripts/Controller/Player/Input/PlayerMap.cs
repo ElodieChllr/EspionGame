@@ -64,15 +64,6 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Jump"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""79445f49-1717-4b5a-8954-8f104e39baf0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Camera"",
                     ""type"": ""Value"",
                     ""id"": ""51d53326-5ee0-4f61-ae4d-445a7e8c3af7"",
@@ -269,28 +260,6 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""a32f11b6-8c62-4353-8692-75396e62fce2"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""494f4136-5e3c-45b1-bd94-8aa5dd47e596"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""2D Vector(manette)"",
                     ""id"": ""27ed15ff-e8e4-42fb-b786-045aad8dc927"",
                     ""path"": ""2DVector"",
@@ -433,7 +402,6 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         m_Player_Interagir = m_Player.FindAction("Interagir", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
-        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
         m_Player_Photo = m_Player.FindAction("Photo", throwIfNotFound: true);
     }
@@ -501,7 +469,6 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interagir;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Sprint;
-    private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Camera;
     private readonly InputAction m_Player_Photo;
     public struct PlayerActions
@@ -512,7 +479,6 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         public InputAction @Interagir => m_Wrapper.m_Player_Interagir;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
-        public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Camera => m_Wrapper.m_Player_Camera;
         public InputAction @Photo => m_Wrapper.m_Player_Photo;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -536,9 +502,6 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
             @Camera.started += instance.OnCamera;
             @Camera.performed += instance.OnCamera;
             @Camera.canceled += instance.OnCamera;
@@ -561,9 +524,6 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
-            @Jump.started -= instance.OnJump;
-            @Jump.performed -= instance.OnJump;
-            @Jump.canceled -= instance.OnJump;
             @Camera.started -= instance.OnCamera;
             @Camera.performed -= instance.OnCamera;
             @Camera.canceled -= instance.OnCamera;
@@ -593,7 +553,6 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         void OnInteragir(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
         void OnPhoto(InputAction.CallbackContext context);
     }
