@@ -46,9 +46,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Animator layoutAnimator;
 
 
-    //private const string speakerTag = "speaker";
-    //private const string portraitTag = "portrait";
-    //private const string layoutTag = "layout";
+    private const string speakerTag = "speaker";
+    private const string portraitTag = "portrait";
+    private const string layoutTag = "layout";
 
 
 
@@ -211,7 +211,30 @@ public class DialogueManager : MonoBehaviour
             }
             string tagKey = splitTag[0].Trim();
             string tagValue = splitTag[1].Trim();
+
+            switch (tagKey)
+            {
+                //Portrait//
+                case speakerTag:
+                    displayNameText.text = tagValue;
+                    Debug.Log("speaker=" + tagValue);
+                    break;
+
+                case portraitTag:
+                    Debug.Log("portrait=" + tagValue);
+                    break;
+
+                case layoutTag:
+                    layoutAnimator.Play(tagValue);
+                    Debug.Log("layout=" + tagValue);
+                    break;
+
+                default:
+                    Debug.Log("Tag came in but is not currently being handled" + tag);
+                    break;
+            }
         }
+        
 
 
 
