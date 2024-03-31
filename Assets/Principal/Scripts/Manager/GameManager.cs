@@ -12,13 +12,16 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     [SerializeField] private bool isPaused;
 
+    public static bool GameActive;
+    [SerializeField] private InventaireController inventaireController;
+
     private void Awake()
     {
         playerInputRef = player.GetComponent<PlayerInput>();
     }
     void Start()
     {
-        
+        inventaireController.Init();
     }    
     private void Update()
     {
