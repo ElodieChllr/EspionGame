@@ -31,8 +31,9 @@ public class PlayerController : MonoBehaviour
     PlayerMap playerMap;
 
     public PlayerInput playerInput;
+    public InventaireController inventaireController;
 
-    
+
 
     void Start()
     {
