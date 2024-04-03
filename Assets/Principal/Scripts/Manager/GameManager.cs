@@ -5,52 +5,10 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject pnl_PauseGlobal;
-    public GameObject pnl_Pause;
+    
 
-    public PlayerInput playerInputRef;
-    public GameObject player;
-    [SerializeField] private bool isPaused;
-
-    public static bool GameActive;
-    [SerializeField] private InventaireController inventaireController;
-
-    private void Awake()
+    public void MyLoadScene(int idScene)
     {
-        playerInputRef = player.GetComponent<PlayerInput>();
-    }
-    void Start()
-    {
-        //inventaireController.Init();
-    }    
-    private void Update()
-    {
-        if (playerInputRef.actions["Pause"].WasReleasedThisFrame())
-        {
-            isPaused = !isPaused;
-        }
-
-        if (isPaused)
-        {
-
-            ActivateMenu();
-        }
-        else
-        {
-            DesactivateMenu();
-        }
-    }
-
-    void ActivateMenu()
-    {
-        Time.timeScale = 0f;
-        pnl_PauseGlobal.SetActive(true);
-    }
-
-    public void DesactivateMenu()
-    {
-        Time.timeScale = 1f;
-        pnl_PauseGlobal.SetActive(false);
-        isPaused = false;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(idScene);
     }
 }

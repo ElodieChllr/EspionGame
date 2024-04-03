@@ -45,4 +45,6 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
         pnl_Pause.SetActive(false);
     }
+
+
 }

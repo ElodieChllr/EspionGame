@@ -4,9 +4,9 @@
 
 - "Good luck and come back as the hero of the nation."#speaker:HeadQuarter  #layout:Right
 
--. #speaker:Ethan  #layout:Left
 
 
+-Well let's do this ! #speaker:Ethan  #layout:Left #GiveAppareilPhoto:true
     
     
 --> END

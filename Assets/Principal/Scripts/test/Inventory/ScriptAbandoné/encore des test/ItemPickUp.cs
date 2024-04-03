@@ -21,16 +21,11 @@ public class ItemPickUp : MonoBehaviour
             InventaireController inventory = other.GetComponent<InventaireController>();
             if (inventory != null)
             {
-                // Créer un nouvel objet d'inventaire en passant le sprite associé
+                
                 InventoryItem newItem = new InventoryItem(itemName, quantity, gameObject, itemSprite);
                 inventory.AddItem(newItem);
 
-                //// Mettre à jour l'interface utilisateur de l'inventaire
-                //if (inventoryUI != null)
-                //    inventoryUI.UpdateUI();
-                //Debug.Log("UpdateUI");
-
-                // Désactiver l'objet dans le monde après l'avoir ramassé
+               
                 gameObject.SetActive(false);
             }
         }

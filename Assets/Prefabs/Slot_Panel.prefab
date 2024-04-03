@@ -299,13 +299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 259f3a232b44703428460a2e639675f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgItem: {fileID: 1701845143228679950}
-  txtQuantity: {fileID: 6108543429913708353}
-  bttnItem: {fileID: 780402150258890644}
-  pointerHoversColor: {r: 1, g: 0.9888224, b: 0.08018869, a: 0}
-  pointerClickColor: {r: 0.15062912, g: 1, b: 0.1273585, a: 0}
-  imgSelector: {fileID: 3597645051160884331}
-  slotCat: 0
 --- !u!1 &5882825822406965428
 GameObject:
   m_ObjectHideFlags: 0

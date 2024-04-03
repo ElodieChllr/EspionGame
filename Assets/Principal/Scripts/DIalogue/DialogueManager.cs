@@ -45,12 +45,18 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private Animator layoutAnimator;
 
-
+    [Header("Tag")]
     private const string speakerTag = "speaker";
     private const string portraitTag = "portrait";
     private const string layoutTag = "layout";
 
+    private const string GiveAppareilPhotoTag = "GiveAppareilPhoto";
 
+
+  
+    [Header("Inventaire")]
+    public GameObject AppareilPhotoPrefab;
+    public GameObject inventoryContent;
 
 
 
@@ -227,6 +233,10 @@ public class DialogueManager : MonoBehaviour
                 case layoutTag:
                     layoutAnimator.Play(tagValue);
                     Debug.Log("layout=" + tagValue);
+                    break;
+
+                case GiveAppareilPhotoTag:
+                    Instantiate(AppareilPhotoPrefab, Vector3.zero, Quaternion.identity, inventoryContent.transform);
                     break;
 
                 default:

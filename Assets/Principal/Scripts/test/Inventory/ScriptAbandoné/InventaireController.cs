@@ -112,23 +112,23 @@ public class InventaireController : MonoBehaviour
     public List<InventoryItem> items = new List<InventoryItem>();
     public InventaireUI inventaireUiRef;
 
-    // Ajouter un objet à l'inventaire
+   
     public void AddItem(InventoryItem item)
     {
         items.Add(item);
         inventaireUiRef.UpdateUI();
-        // Mettre à jour l'interface utilisateur de l'inventaire ici
+
     }
 
-    // Supprimer un objet de l'inventaire
+
     public void RemoveItem(InventoryItem item)
     {
         items.Remove(item);
         inventaireUiRef.UpdateUI();
-        // Mettre à jour l'interface utilisateur de l'inventaire ici
+
     }
 
-    // Méthode pour vérifier si un objet est présent dans l'inventaire
+
     public bool HasItem(string itemName)
     {
         foreach (InventoryItem item in items)
@@ -139,7 +139,7 @@ public class InventaireController : MonoBehaviour
         return false;
     }
 
-    // Méthode pour obtenir un objet de l'inventaire par son nom
+
     public InventoryItem GetItem(string itemName)
     {
         foreach (InventoryItem item in items)

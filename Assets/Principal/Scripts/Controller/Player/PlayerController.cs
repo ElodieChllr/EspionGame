@@ -26,12 +26,13 @@ public class PlayerController : MonoBehaviour
 
     public bool isJumpPressed;
 
-
+    public GameObject Pnl_inventaire;
+    public bool pnl_inventaireOpen;
 
     PlayerMap playerMap;
 
     public PlayerInput playerInput;
-    public InventaireController inventaireController;
+    //public InventaireController inventaireController;
 
 
 
@@ -63,10 +64,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("Tilt X: " + tiltX + ", Tilt Y: " + tiltY);
         //AnimManager(tiltX, tiltY);
 
-        if (playerInput.actions["Inventaire"].WasReleasedThisFrame())
-        {
-            //inventaireController.OnSetOpen(true);           
-        }
+        InventaireUI();
     }
 
 
@@ -111,24 +109,42 @@ public class PlayerController : MonoBehaviour
         cameraMainTransform.rotation = Quaternion.Slerp(cameraMainTransform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
+    public void InventaireUI()
+    {
+        if (playerInput.actions["Inventaire"].WasReleasedThisFrame())
+        {
+            if (pnl_inventaireOpen)
+            {
+                Pnl_inventaire.SetActive(false);
+                pnl_inventaireOpen = false;
+            }
+            else
+            {
+                Pnl_inventaire.SetActive(true);
+                pnl_inventaireOpen = true;
+            }
+
+        }
+    }
+
     //private void RecupeObject()
     //{
 
     //}
 
-    public void Jump(InputAction.CallbackContext context)
-    {
-        if(context.performed)
-        {
+    //public void Jump(InputAction.CallbackContext context)
+    //{
+    //    if(context.performed)
+    //    {
         
-            isJumpPressed = true;
+    //        isJumpPressed = true;
 
-        }
-        if(context.canceled)
-        {
-            isJumpPressed=false;
-        }
-    }
+    //    }
+    //    if(context.canceled)
+    //    {
+    //        isJumpPressed=false;
+    //    }
+    //}
 
 
     private void OnEnable()
