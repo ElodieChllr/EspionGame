@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        inventaireController.Init();
+        //inventaireController.Init();
     }    
     private void Update()
     {

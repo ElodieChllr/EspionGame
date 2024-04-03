@@ -63,7 +63,10 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("Tilt X: " + tiltX + ", Tilt Y: " + tiltY);
         //AnimManager(tiltX, tiltY);
 
-
+        if (playerInput.actions["Inventaire"].WasReleasedThisFrame())
+        {
+            //inventaireController.OnSetOpen(true);           
+        }
     }
 
 

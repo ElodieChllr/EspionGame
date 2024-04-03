@@ -80,6 +80,15 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventaire"",
+                    ""type"": ""Button"",
+                    ""id"": ""4e3e993b-145b-45f1-be2a-fba402a11780"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -390,6 +399,17 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""action"": ""Photo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1648d77f-ca83-4efa-a574-08fc947cfc23"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventaire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -404,6 +424,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
         m_Player_Photo = m_Player.FindAction("Photo", throwIfNotFound: true);
+        m_Player_Inventaire = m_Player.FindAction("Inventaire", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -471,6 +492,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Camera;
     private readonly InputAction m_Player_Photo;
+    private readonly InputAction m_Player_Inventaire;
     public struct PlayerActions
     {
         private @PlayerMap m_Wrapper;
@@ -481,6 +503,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @Camera => m_Wrapper.m_Player_Camera;
         public InputAction @Photo => m_Wrapper.m_Player_Photo;
+        public InputAction @Inventaire => m_Wrapper.m_Player_Inventaire;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -508,6 +531,9 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
             @Photo.started += instance.OnPhoto;
             @Photo.performed += instance.OnPhoto;
             @Photo.canceled += instance.OnPhoto;
+            @Inventaire.started += instance.OnInventaire;
+            @Inventaire.performed += instance.OnInventaire;
+            @Inventaire.canceled += instance.OnInventaire;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -530,6 +556,9 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
             @Photo.started -= instance.OnPhoto;
             @Photo.performed -= instance.OnPhoto;
             @Photo.canceled -= instance.OnPhoto;
+            @Inventaire.started -= instance.OnInventaire;
+            @Inventaire.performed -= instance.OnInventaire;
+            @Inventaire.canceled -= instance.OnInventaire;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -555,5 +584,6 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
         void OnPhoto(InputAction.CallbackContext context);
+        void OnInventaire(InputAction.CallbackContext context);
     }
 }
