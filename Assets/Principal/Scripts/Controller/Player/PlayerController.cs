@@ -55,13 +55,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tiltValue = controls.Player.Movement.ReadValue<Vector3>();
-        float tiltX = tiltValue.x;
-        float tiltY = tiltValue.y;
+        //tiltValue = controls.Player.Movement.ReadValue<Vector3>();
+        //float tiltX = tiltValue.x;
+        //float tiltY = tiltValue.y;
 
-        // Utiliser tiltX et tiltY pour contrôler votre jeu en fonction de l'inclinaison du joystick
-        Debug.Log("Tilt X: " + tiltX + ", Tilt Y: " + tiltY);
-        AnimManager(tiltX, tiltY);
+        //Utiliser tiltX et tiltY pour contrôler votre jeu en fonction de l'inclinaison du joystick
+        //Debug.Log("Tilt X: " + tiltX + ", Tilt Y: " + tiltY);
+        //AnimManager(tiltX, tiltY);
+
+
     }
 
 
