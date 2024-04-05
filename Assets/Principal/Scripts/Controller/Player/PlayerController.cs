@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph;
@@ -7,6 +8,7 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] CinemachineVirtualCamera TpsCam, FpsCam; 
     public Rigidbody rb_player;
     public Transform cameraPivot;
 
@@ -24,11 +26,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 tiltValue;
     private Animator animator;
 
-    public bool isJumpPressed;
+    public bool isSwitchPressed;
 
     public GameObject Pnl_inventaire;
     public bool pnl_inventaireOpen;
-
+    
     PlayerMap playerMap;
 
     public PlayerInput playerInput;
@@ -40,7 +42,8 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();    
         rb_player = GetComponent<Rigidbody>();
-        isJumpPressed = false;
+        isSwitchPressed = false;
+
     }
     private void Awake()
     {
@@ -132,29 +135,41 @@ public class PlayerController : MonoBehaviour
 
     //}
 
-    //public void Jump(InputAction.CallbackContext context)
-    //{
-    //    if(context.performed)
-    //    {
-        
-    //        isJumpPressed = true;
+    public void Switch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("switchperformed");
+            if(CameraSwitch.IsActiveCam(TpsCam))
+            {
+                CameraSwitch.Switch(FpsCam);
+                isSwitchPressed =true;
 
-    //    }
-    //    if(context.canceled)
-    //    {
-    //        isJumpPressed=false;
-    //    }
-    //}
+            }
+            else if (CameraSwitch.IsActiveCam(FpsCam))
+            {
+                CameraSwitch.Switch(TpsCam);
+            }
+
+        }
+        
+    }
 
 
     private void OnEnable()
     {
         playerMap.Enable();
+
+        CameraSwitch.Register(TpsCam);
+        CameraSwitch.Register(FpsCam);
+        CameraSwitch.Switch(TpsCam);
     }
 
     private void OnDisable()
     {
         playerMap.Disable();
+        CameraSwitch.Unregister(TpsCam);
+        CameraSwitch.Unregister(FpsCam);
     }
 
 
@@ -170,6 +185,8 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Player_Velocity", animationMove);
     }
 
+
+  
 
 }
 

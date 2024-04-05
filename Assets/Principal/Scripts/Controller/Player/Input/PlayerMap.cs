@@ -89,6 +89,15 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Switch"",
+                    ""type"": ""Button"",
+                    ""id"": ""ad7ed97f-e58e-4271-82b6-eee863e1e449"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -410,6 +419,28 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""action"": ""Inventaire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b63296fe-9483-472a-b741-3b58dc5e2bd4"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df0eba70-eed2-42ae-958e-6473430dd4c7"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -425,6 +456,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
         m_Player_Photo = m_Player.FindAction("Photo", throwIfNotFound: true);
         m_Player_Inventaire = m_Player.FindAction("Inventaire", throwIfNotFound: true);
+        m_Player_Switch = m_Player.FindAction("Switch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -493,6 +525,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Camera;
     private readonly InputAction m_Player_Photo;
     private readonly InputAction m_Player_Inventaire;
+    private readonly InputAction m_Player_Switch;
     public struct PlayerActions
     {
         private @PlayerMap m_Wrapper;
@@ -504,6 +537,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         public InputAction @Camera => m_Wrapper.m_Player_Camera;
         public InputAction @Photo => m_Wrapper.m_Player_Photo;
         public InputAction @Inventaire => m_Wrapper.m_Player_Inventaire;
+        public InputAction @Switch => m_Wrapper.m_Player_Switch;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -534,6 +568,9 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
             @Inventaire.started += instance.OnInventaire;
             @Inventaire.performed += instance.OnInventaire;
             @Inventaire.canceled += instance.OnInventaire;
+            @Switch.started += instance.OnSwitch;
+            @Switch.performed += instance.OnSwitch;
+            @Switch.canceled += instance.OnSwitch;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -559,6 +596,9 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
             @Inventaire.started -= instance.OnInventaire;
             @Inventaire.performed -= instance.OnInventaire;
             @Inventaire.canceled -= instance.OnInventaire;
+            @Switch.started -= instance.OnSwitch;
+            @Switch.performed -= instance.OnSwitch;
+            @Switch.canceled -= instance.OnSwitch;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -585,5 +625,6 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         void OnCamera(InputAction.CallbackContext context);
         void OnPhoto(InputAction.CallbackContext context);
         void OnInventaire(InputAction.CallbackContext context);
+        void OnSwitch(InputAction.CallbackContext context);
     }
 }

@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Switch",
+                    "type": "Button",
+                    "id": "ad7ed97f-e58e-4271-82b6-eee863e1e449",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -386,6 +395,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Inventaire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b63296fe-9483-472a-b741-3b58dc5e2bd4",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df0eba70-eed2-42ae-958e-6473430dd4c7",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
