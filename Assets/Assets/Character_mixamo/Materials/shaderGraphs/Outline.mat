@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: new
-  m_Shader: {fileID: -6465566751694194690, guid: 8286ebe352c3e194ca3a3143a2f13ec3,
+  m_Name: Outline
+  m_Shader: {fileID: -6465566751694194690, guid: 0fe2b0d5c5094b04f8c5d5642c43f7be,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,10 +24,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 37fa583ed4bd01d47bf87c68872bc607, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -42,18 +38,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Outline_Thickness: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _lightingCutoff: -0.99
-    - _lightingCutoff_1: 1
-    - _shadowBrightness: 0.276
     m_Colors:
-    - _ColorLight: {r: 0.5145069, g: 0.5192948, b: 0.7735849, a: 0}
-    - _Colordark: {r: 0.41509432, g: 0.10564314, b: 0.048949793, a: 1}
-    - _Colorlight: {r: 0.509434, g: 0.29638705, b: 0.17061234, a: 0}
-    - _Colormid: {r: 0.46226418, g: 0.3649953, b: 0.3379762, a: 0}
+    - _Outline_Color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &7680847720181905283
+--- !u!114 &8609072072837910498
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
