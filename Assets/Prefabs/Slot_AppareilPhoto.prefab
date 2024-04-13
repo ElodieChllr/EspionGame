@@ -151,7 +151,7 @@ MonoBehaviour:
   onSlotSelected:
     m_PersistentCalls:
       m_Calls: []
-  objectTag: pnl_Use
+  nomObjetAActiver: Pnl_Use
 --- !u!1 &6440558362268215662
 GameObject:
   m_ObjectHideFlags: 0

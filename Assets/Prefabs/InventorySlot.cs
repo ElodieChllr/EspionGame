@@ -11,12 +11,13 @@ public class InventorySlot : MonoBehaviour
     public GameObject usePanel;
     public UnityEvent <GameObject> onSlotSelected;
 
-    
+
+    public bool openUse;
 
     private void Start()
     {
-        
 
+        
 
         Button button = GetComponent<Button>();
 
@@ -50,7 +51,8 @@ public class InventorySlot : MonoBehaviour
 
     public void OpenUse(GameObject selectedSlot)
     {
-        usePanel.SetActive(true);
+        openUse = true;
+        //usePanel.SetActive(true);
         var eventSystem = EventSystem.current;
         eventSystem.SetSelectedGameObject(useButton, new BaseEventData(eventSystem));
     }

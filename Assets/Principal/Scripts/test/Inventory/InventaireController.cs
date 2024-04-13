@@ -159,7 +159,7 @@ public class InventaireController : MonoBehaviour
     public GameObject bt_Slot;
 
     public GameObject pnl_Use;
-    //public InventorySlot inventorySlotRef;
+    public InventorySlot inventorySlotRef;
 
     private PlayerInput playerInputRef;
     private PlayerMap controls;
@@ -176,6 +176,9 @@ public class InventaireController : MonoBehaviour
         controls.InventaireNavigation.Down.performed += ctx => InventoryNavigationDown();
         controls.InventaireNavigation.Left.performed += ctx => InventoryNavigationLeft();
         controls.InventaireNavigation.Right.performed += ctx => InventoryNavigationRight();
+
+
+       
     }
 
     private void OnEnable()
@@ -209,7 +212,24 @@ public class InventaireController : MonoBehaviour
             controls.Player.Inventaire.Enable();
         }
 
+        
+        InventorySlot[] scripts = FindObjectsOfType<InventorySlot>();
 
+        
+        foreach (InventorySlot script in scripts)
+        {
+            
+            if (script.openUse)
+            {
+                pnl_Use.SetActive(true);
+                Debug.Log("Le booléen est activé sur un objet avec MonScript attaché.");
+            }
+            else
+            {
+                pnl_Use.SetActive(false);                
+                Debug.Log("Le booléen n'est pas activé sur un objet avec MonScript attaché.");
+            }
+        }
     }
     private void OpenInventoryPanel()
     {

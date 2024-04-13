@@ -226,4 +226,4 @@ MonoBehaviour:
   onSlotSelected:
     m_PersistentCalls:
       m_Calls: []
-  objectTag: pnl_Use
+  nomObjetAActiver: Pnl_Use

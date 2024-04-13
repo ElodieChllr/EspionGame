@@ -20,7 +20,11 @@ public class InventaireManager : MonoBehaviour
             slot.onSlotSelected.AddListener(OnSlotSelected);
         }
     }
-   
+
+    private void Update()
+    {
+        
+    }
     public void OpenUse()
     {
         var eventSystem = EventSystem.current;
@@ -31,8 +35,21 @@ public class InventaireManager : MonoBehaviour
     public void Cancel()
     {
         var eventSystem = EventSystem.current;
-        //eventSystem.SetSelectedGameObject(Slot, new BaseEventData(eventSystem));
+        eventSystem.SetSelectedGameObject(Slot, new BaseEventData(eventSystem));
+
+        // Désactiver le panel
         usePanel.SetActive(false);
+
+        // Trouver tous les objets dans la scène qui ont le script InventorySlot attaché
+        InventorySlot[] scripts = FindObjectsOfType<InventorySlot>();
+
+        // Parcourir tous les objets qui ont le script InventorySlot attaché
+        foreach (InventorySlot script in scripts)
+        {
+            // Définir le booléen openUse sur false pour chaque objet
+            script.openUse = false;
+        }
+
     }
     private void OnSlotSelected(GameObject slotObject)
     {
