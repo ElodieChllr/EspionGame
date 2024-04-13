@@ -153,23 +153,22 @@ public class InventaireController : MonoBehaviour
     //}
     public GameObject player;
     public GameObject inventoryPanel;
-    public bool isInventoryOpen;
-    public PlayerCollect playerCollectRef;
-    //public GameObject backgroundButton;
-    public GameObject bt_Slot;
-
     public GameObject pnl_Use;
-    public InventorySlot inventorySlotRef;
+    public GameObject usePanel;
+    public GameObject bt_use;
+    public GameObject bt_cancel;
+    public PlayerCollect playerCollectRef;
 
+    private bool isInventoryOpen;
     private PlayerInput playerInputRef;
     private PlayerMap controls;
 
+    private InventorySlot lastSelectedSlot;
     private void Awake()
     {
         playerInputRef = player.GetComponent<PlayerInput>();
         controls = new PlayerMap();
 
-        //controls.Player.Inventaire.performed += ctx => ToggleInventoryMenu();
         controls.Player.InventaireNavigation.Enable();
 
         controls.InventaireNavigation.Up.performed += ctx => InventoryNavigationUp();
@@ -177,8 +176,11 @@ public class InventaireController : MonoBehaviour
         controls.InventaireNavigation.Left.performed += ctx => InventoryNavigationLeft();
         controls.InventaireNavigation.Right.performed += ctx => InventoryNavigationRight();
 
-
-       
+        InventorySlot[] slots = FindObjectsOfType<InventorySlot>();
+        foreach (InventorySlot slot in slots)
+        {
+            slot.onSlotSelected.AddListener(OnSlotSelected);
+        }
     }
 
     private void OnEnable()
@@ -191,46 +193,39 @@ public class InventaireController : MonoBehaviour
         controls.Disable();
     }
 
-
     private void Update()
     {
         if (playerInputRef.actions["Inventaire"].WasReleasedThisFrame())
         {
             isInventoryOpen = !isInventoryOpen;
-        }
-
-        if (isInventoryOpen)
-        {
-            OpenInventoryPanel();
-            controls.Player.InventaireNavigation.Enable();
-            controls.Player.Inventaire.Disable();
-        }
-        else
-        {
-            CloseInventoryPanel();
-            controls.Player.InventaireNavigation.Disable();
-            controls.Player.Inventaire.Enable();
-        }
-
-        
-        InventorySlot[] scripts = FindObjectsOfType<InventorySlot>();
-
-        
-        foreach (InventorySlot script in scripts)
-        {
-            
-            if (script.openUse)
+            if (isInventoryOpen)
             {
-                pnl_Use.SetActive(true);
-                Debug.Log("Le booléen est activé sur un objet avec MonScript attaché.");
+                OpenInventoryPanel();
             }
             else
             {
-                pnl_Use.SetActive(false);                
-                Debug.Log("Le booléen n'est pas activé sur un objet avec MonScript attaché.");
+                CloseInventoryPanel();
+            }
+        }
+
+        InventorySlot[] scripts = FindObjectsOfType<InventorySlot>();
+
+        foreach (InventorySlot script in scripts)
+        {
+            if (script.openUse)
+            {
+                pnl_Use.SetActive(true);
+                bt_use.GetComponent<Selectable>().interactable = true;
+                bt_cancel.GetComponent<Selectable>().interactable = true;
+                EventSystem.current.SetSelectedGameObject(bt_use);
+            }
+            else
+            {
+                pnl_Use.SetActive(false);
             }
         }
     }
+
     private void OpenInventoryPanel()
     {
         Time.timeScale = 0;
@@ -238,16 +233,30 @@ public class InventaireController : MonoBehaviour
         isInventoryOpen = true;
 
         GameObject lastButton = playerCollectRef.GetLastButtonInstantiated();
-
         if (lastButton != null)
         {
-            var eventSystem = EventSystem.current;
-            eventSystem.SetSelectedGameObject(lastButton, new BaseEventData(eventSystem));
+            EventSystem.current.SetSelectedGameObject(lastButton);
         }
-        else
+    }
+
+    public void Cancel()
+    {
+        usePanel.SetActive(false);
+        InventorySlot[] scripts = FindObjectsOfType<InventorySlot>();
+        foreach (InventorySlot script in scripts)
         {
-            
+            script.openUse = false;
         }
+    }
+
+    private void OnSlotSelected(GameObject slotObject)
+    {
+        UseItem(slotObject);
+    }
+
+    private void UseItem(GameObject slotObject)
+    {
+        Debug.Log("Objet utilisé : " + slotObject.name);
     }
 
     private void CloseInventoryPanel()
@@ -259,67 +268,80 @@ public class InventaireController : MonoBehaviour
 
     private void InventoryNavigationUp()
     {
-
-        GameObject currentButton = EventSystem.current.currentSelectedGameObject;
-
-
-        Selectable currentSelectable = currentButton.GetComponent<Selectable>();
-        Selectable nextSelectable = currentSelectable.FindSelectableOnUp();
-
-
-        if (nextSelectable != null)
+        Selectable currentButton = EventSystem.current.currentSelectedGameObject?.GetComponent<Selectable>();
+        if (currentButton != null)
         {
-            GameObject nextButton = nextSelectable.gameObject;
-            EventSystem.current.SetSelectedGameObject(nextButton);
+            Selectable nextSelectable = currentButton.FindSelectableOnUp();
+            if (nextSelectable != null)
+            {
+                GameObject nextButton = nextSelectable.gameObject;
+                EventSystem.current.SetSelectedGameObject(nextButton);
+            }
         }
     }
 
     private void InventoryNavigationDown()
     {
-
-        GameObject currentButton = EventSystem.current.currentSelectedGameObject;
-
-
-        Selectable currentSelectable = currentButton.GetComponent<Selectable>();
-        Selectable nextSelectable = currentSelectable.FindSelectableOnDown();
-
-
-        if (nextSelectable != null)
+        Selectable currentButton = EventSystem.current.currentSelectedGameObject?.GetComponent<Selectable>();
+        if (currentButton != null)
         {
-            GameObject nextButton = nextSelectable.gameObject;
-            EventSystem.current.SetSelectedGameObject(nextButton);
+            Selectable nextSelectable = currentButton.FindSelectableOnDown();
+            if (nextSelectable != null)
+            {
+                GameObject nextButton = nextSelectable.gameObject;
+                EventSystem.current.SetSelectedGameObject(nextButton);
+            }
         }
     }
 
     private void InventoryNavigationLeft()
     {
-
-        GameObject currentButton = EventSystem.current.currentSelectedGameObject;
-
-
-        Selectable currentSelectable = currentButton.GetComponent<Selectable>();
-        Selectable nextSelectable = currentSelectable.FindSelectableOnLeft();
-
-        if (nextSelectable != null)
+        Selectable currentButton = EventSystem.current.currentSelectedGameObject?.GetComponent<Selectable>();
+        if (currentButton != null)
         {
-            GameObject nextButton = nextSelectable.gameObject;
-            EventSystem.current.SetSelectedGameObject(nextButton);
+            Selectable nextSelectable = currentButton.FindSelectableOnLeft();
+            if (nextSelectable != null)
+            {
+                GameObject nextButton = nextSelectable.gameObject;
+                EventSystem.current.SetSelectedGameObject(nextButton);
+            }
         }
     }
 
     private void InventoryNavigationRight()
     {
-
-        GameObject currentButton = EventSystem.current.currentSelectedGameObject;
-
-        Selectable currentSelectable = currentButton.GetComponent<Selectable>();
-        Selectable nextSelectable = currentSelectable.FindSelectableOnRight();
-
-
-        if (nextSelectable != null)
+        Selectable currentButton = EventSystem.current.currentSelectedGameObject?.GetComponent<Selectable>();
+        if (currentButton != null)
         {
-            GameObject nextButton = nextSelectable.gameObject;
-            EventSystem.current.SetSelectedGameObject(nextButton);
+            Selectable nextSelectable = currentButton.FindSelectableOnRight();
+            if (nextSelectable != null)
+            {
+                GameObject nextButton = nextSelectable.gameObject;
+                EventSystem.current.SetSelectedGameObject(nextButton);
+            }
+        }
+    }
+    public void _OnSlotSelected(GameObject slotObject)
+    {
+        
+        Debug.Log("Slot sélectionné : " + slotObject.name);
+    }
+
+    public void SetLastSelectedSlot(InventorySlot slot)
+    {
+        lastSelectedSlot = slot;
+    }
+
+    public void Utiliser()
+    {
+
+        if (lastSelectedSlot != null)
+        {
+            lastSelectedSlot.Utiliser();
+        }
+        else
+        {
+            Debug.Log("Aucun slot sélectionné pour utiliser");
         }
     }
 }

@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1810558902820836209}
   - component: {fileID: 326272507988802862}
   - component: {fileID: 1539014462758384330}
-  - component: {fileID: 315663718365847464}
+  - component: {fileID: 6663511074405273736}
   m_Layer: 5
   m_Name: Slot_CarteD'accesBombe
   m_TagString: Untagged
@@ -209,7 +209,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &315663718365847464
+--- !u!114 &6663511074405273736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8486478486254138762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f5d1eddfffcaac4697c6f081205be5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 90bf84097b4e0c1418b2417ef5348936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   useButton: {fileID: 0}
@@ -226,4 +226,4 @@ MonoBehaviour:
   onSlotSelected:
     m_PersistentCalls:
       m_Calls: []
-  nomObjetAActiver: Pnl_Use
+  openUse: 0

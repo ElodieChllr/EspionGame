@@ -9,30 +9,29 @@ public class InventorySlot : MonoBehaviour
 {
     public GameObject useButton;
     public GameObject usePanel;
-    public UnityEvent <GameObject> onSlotSelected;
+    public UnityEvent<GameObject> onSlotSelected;
 
+
+    private InventaireController inventoryController;
 
     public bool openUse;
 
     private void Start()
     {
-
-        
+        inventoryController = FindObjectOfType<InventaireController>();
 
         Button button = GetComponent<Button>();
 
         if (button != null)
         {
-            button.onClick.AddListener(() => OpenUse(gameObject));
+            button.onClick.AddListener(SelectSlot);
         }
-
-
     }
+
     private void Update()
     {
         GameObject parentObject = GameObject.Find("Pnl_Inventory");
 
-        // Rechercher le GameObject enfant à partir du parent, même s'il est désactivé
         if (parentObject != null)
         {
             Transform childTransform = parentObject.transform.Find("Pnl_Use");
@@ -41,19 +40,35 @@ public class InventorySlot : MonoBehaviour
                 usePanel = childTransform.gameObject;
             }
         }
-        usePanel = GameObject.FindWithTag("pnl_Use");
+        else
+        {
+            usePanel = null;
+        }
     }
 
     public void SelectSlot()
     {
-        onSlotSelected.Invoke(gameObject);
+        inventoryController._OnSlotSelected(gameObject);
+        openUse = true;
+        EventSystem.current.SetSelectedGameObject(null);
+        inventoryController.SetLastSelectedSlot(this);
     }
 
-    public void OpenUse(GameObject selectedSlot)
+    public virtual void Utiliser()
     {
-        openUse = true;
-        //usePanel.SetActive(true);
-        var eventSystem = EventSystem.current;
-        eventSystem.SetSelectedGameObject(useButton, new BaseEventData(eventSystem));
+        Debug.Log("Action générique de l'objet");
     }
+
+    //public void OpenUse(GameObject selectedSlot)
+    //{
+    //    openUse = true;
+    //    EventSystem.current.SetSelectedGameObject(null);
+    //    inventoryController.SetLastSelectedSlot(this);
+    //}
 }
+
+
+
+
+
+

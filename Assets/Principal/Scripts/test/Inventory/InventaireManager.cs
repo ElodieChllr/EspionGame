@@ -11,6 +11,8 @@ public class InventaireManager : MonoBehaviour
 
     public GameObject useButton;
     public GameObject Slot;
+
+    public InventaireController InventairecontrollerRef;
     private void Start()
     {
         // Abonnez-vous à l'événement de sélection de tous les slots de l'inventaire
@@ -25,32 +27,32 @@ public class InventaireManager : MonoBehaviour
     {
         
     }
-    public void OpenUse()
-    {
-        var eventSystem = EventSystem.current;
-        eventSystem.SetSelectedGameObject(useButton, new BaseEventData(eventSystem));
-        usePanel.SetActive(true);
-    }
+    //public void OpenUse()
+    //{
+    //    var eventSystem = EventSystem.current;
+    //    eventSystem.SetSelectedGameObject(useButton, new BaseEventData(eventSystem));
+    //    usePanel.SetActive(true);
+    //}
 
-    public void Cancel()
-    {
-        var eventSystem = EventSystem.current;
-        eventSystem.SetSelectedGameObject(Slot, new BaseEventData(eventSystem));
+    //public void Cancel()
+    //{
+    //    var eventSystem = EventSystem.current;
+    //    eventSystem.SetSelectedGameObject(Slot, new BaseEventData(eventSystem));
 
-        // Désactiver le panel
-        usePanel.SetActive(false);
+        
+    //    usePanel.SetActive(false);
+    //    InventairecontrollerRef.InventoryNavigationUp();
 
-        // Trouver tous les objets dans la scène qui ont le script InventorySlot attaché
-        InventorySlot[] scripts = FindObjectsOfType<InventorySlot>();
+    //    InventorySlot[] scripts = FindObjectsOfType<InventorySlot>();
 
-        // Parcourir tous les objets qui ont le script InventorySlot attaché
-        foreach (InventorySlot script in scripts)
-        {
-            // Définir le booléen openUse sur false pour chaque objet
-            script.openUse = false;
-        }
+        
+    //    foreach (InventorySlot script in scripts)
+    //    {
+            
+    //        script.openUse = false;
+    //    }
 
-    }
+    //}
     private void OnSlotSelected(GameObject slotObject)
     {
 

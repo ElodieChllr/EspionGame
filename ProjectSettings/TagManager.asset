@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - CarteD'acces
   - "Cl\xE9"
   - pnl_Use
+  - CarteAcces
   layers:
   - Default
   - TransparentFX
