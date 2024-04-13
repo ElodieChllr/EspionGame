@@ -98,6 +98,15 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventaireNavigation"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""1679bb17-ade3-41c3-8007-e255f6bf1714"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -215,6 +224,17 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""ff6752ef-0786-4b53-89b9-3675c0331632"",
                     ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interagir"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""38710a1b-1736-4d20-a7cf-f7ca5c8fea2b"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -411,6 +431,17 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""fcd502e3-731c-44d6-9718-c4238d1df5cc"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventaire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b63296fe-9483-472a-b741-3b58dc5e2bd4"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -430,6 +461,149 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""action"": ""Switch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""678f205b-1128-4a48-80f4-5867c03e80a0"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventaireNavigation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""7227f471-69e4-494b-be35-6f36705d12ca"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventaireNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""57cfeb8b-b854-46db-aecc-f3a60f693d04"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventaireNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""38447146-6b77-467f-aa61-fbb6046e09bd"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventaireNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""a728f6d3-70bc-438a-a28a-dc436bd9a9a8"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventaireNavigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""InventaireNavigation"",
+            ""id"": ""f82d2b30-9544-4dd4-9d2a-647dcee065b1"",
+            ""actions"": [
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""abab5c95-8750-406a-ae41-d4b18a0b2873"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""f9d1edab-2097-4b8f-9d39-cd44cf98e5ee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""188279f0-0083-47c2-a386-d24d03015c7b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""02d009e1-8df9-45a8-9cd6-725fbfb10bd2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""76fba702-ded1-4f36-a117-c33d6e6c2e15"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d585253-4cec-4d54-8641-8105d3807009"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5feb0c78-fd23-4ab8-aaba-7623c2b9f9ab"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""320119b6-340a-4b28-9606-28497bb5f9d3"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -446,6 +620,13 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         m_Player_Photo = m_Player.FindAction("Photo", throwIfNotFound: true);
         m_Player_Inventaire = m_Player.FindAction("Inventaire", throwIfNotFound: true);
         m_Player_Switch = m_Player.FindAction("Switch", throwIfNotFound: true);
+        m_Player_InventaireNavigation = m_Player.FindAction("InventaireNavigation", throwIfNotFound: true);
+        // InventaireNavigation
+        m_InventaireNavigation = asset.FindActionMap("InventaireNavigation", throwIfNotFound: true);
+        m_InventaireNavigation_Up = m_InventaireNavigation.FindAction("Up", throwIfNotFound: true);
+        m_InventaireNavigation_Down = m_InventaireNavigation.FindAction("Down", throwIfNotFound: true);
+        m_InventaireNavigation_Left = m_InventaireNavigation.FindAction("Left", throwIfNotFound: true);
+        m_InventaireNavigation_Right = m_InventaireNavigation.FindAction("Right", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -515,6 +696,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Photo;
     private readonly InputAction m_Player_Inventaire;
     private readonly InputAction m_Player_Switch;
+    private readonly InputAction m_Player_InventaireNavigation;
     public struct PlayerActions
     {
         private @PlayerMap m_Wrapper;
@@ -527,6 +709,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         public InputAction @Photo => m_Wrapper.m_Player_Photo;
         public InputAction @Inventaire => m_Wrapper.m_Player_Inventaire;
         public InputAction @Switch => m_Wrapper.m_Player_Switch;
+        public InputAction @InventaireNavigation => m_Wrapper.m_Player_InventaireNavigation;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -560,6 +743,9 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
             @Switch.started += instance.OnSwitch;
             @Switch.performed += instance.OnSwitch;
             @Switch.canceled += instance.OnSwitch;
+            @InventaireNavigation.started += instance.OnInventaireNavigation;
+            @InventaireNavigation.performed += instance.OnInventaireNavigation;
+            @InventaireNavigation.canceled += instance.OnInventaireNavigation;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -588,6 +774,9 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
             @Switch.started -= instance.OnSwitch;
             @Switch.performed -= instance.OnSwitch;
             @Switch.canceled -= instance.OnSwitch;
+            @InventaireNavigation.started -= instance.OnInventaireNavigation;
+            @InventaireNavigation.performed -= instance.OnInventaireNavigation;
+            @InventaireNavigation.canceled -= instance.OnInventaireNavigation;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -605,6 +794,76 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // InventaireNavigation
+    private readonly InputActionMap m_InventaireNavigation;
+    private List<IInventaireNavigationActions> m_InventaireNavigationActionsCallbackInterfaces = new List<IInventaireNavigationActions>();
+    private readonly InputAction m_InventaireNavigation_Up;
+    private readonly InputAction m_InventaireNavigation_Down;
+    private readonly InputAction m_InventaireNavigation_Left;
+    private readonly InputAction m_InventaireNavigation_Right;
+    public struct InventaireNavigationActions
+    {
+        private @PlayerMap m_Wrapper;
+        public InventaireNavigationActions(@PlayerMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Up => m_Wrapper.m_InventaireNavigation_Up;
+        public InputAction @Down => m_Wrapper.m_InventaireNavigation_Down;
+        public InputAction @Left => m_Wrapper.m_InventaireNavigation_Left;
+        public InputAction @Right => m_Wrapper.m_InventaireNavigation_Right;
+        public InputActionMap Get() { return m_Wrapper.m_InventaireNavigation; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InventaireNavigationActions set) { return set.Get(); }
+        public void AddCallbacks(IInventaireNavigationActions instance)
+        {
+            if (instance == null || m_Wrapper.m_InventaireNavigationActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_InventaireNavigationActionsCallbackInterfaces.Add(instance);
+            @Up.started += instance.OnUp;
+            @Up.performed += instance.OnUp;
+            @Up.canceled += instance.OnUp;
+            @Down.started += instance.OnDown;
+            @Down.performed += instance.OnDown;
+            @Down.canceled += instance.OnDown;
+            @Left.started += instance.OnLeft;
+            @Left.performed += instance.OnLeft;
+            @Left.canceled += instance.OnLeft;
+            @Right.started += instance.OnRight;
+            @Right.performed += instance.OnRight;
+            @Right.canceled += instance.OnRight;
+        }
+
+        private void UnregisterCallbacks(IInventaireNavigationActions instance)
+        {
+            @Up.started -= instance.OnUp;
+            @Up.performed -= instance.OnUp;
+            @Up.canceled -= instance.OnUp;
+            @Down.started -= instance.OnDown;
+            @Down.performed -= instance.OnDown;
+            @Down.canceled -= instance.OnDown;
+            @Left.started -= instance.OnLeft;
+            @Left.performed -= instance.OnLeft;
+            @Left.canceled -= instance.OnLeft;
+            @Right.started -= instance.OnRight;
+            @Right.performed -= instance.OnRight;
+            @Right.canceled -= instance.OnRight;
+        }
+
+        public void RemoveCallbacks(IInventaireNavigationActions instance)
+        {
+            if (m_Wrapper.m_InventaireNavigationActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IInventaireNavigationActions instance)
+        {
+            foreach (var item in m_Wrapper.m_InventaireNavigationActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_InventaireNavigationActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public InventaireNavigationActions @InventaireNavigation => new InventaireNavigationActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -615,5 +874,13 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         void OnPhoto(InputAction.CallbackContext context);
         void OnInventaire(InputAction.CallbackContext context);
         void OnSwitch(InputAction.CallbackContext context);
+        void OnInventaireNavigation(InputAction.CallbackContext context);
+    }
+    public interface IInventaireNavigationActions
+    {
+        void OnUp(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
+        void OnLeft(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
     }
 }

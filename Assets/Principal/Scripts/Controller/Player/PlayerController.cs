@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
@@ -31,12 +32,16 @@ public class PlayerController : MonoBehaviour
     public GameObject Pnl_inventaire;
     public bool pnl_inventaireOpen;
     
+    public PlayerCollect playerCollectRef;
+
     PlayerMap playerMap;
 
     public PlayerInput playerInput;
     //public InventaireController inventaireController;
 
-
+    [Header("Boutons")]
+    public GameObject bt_Inventaire;
+    public GameObject bt_SlotBackground;
 
     void Start()
     {
@@ -67,7 +72,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("Tilt X: " + tiltX + ", Tilt Y: " + tiltY);
         //AnimManager(tiltX, tiltY);
 
-        InventaireUI();
+        //InventaireUI();
     }
 
 
@@ -112,23 +117,7 @@ public class PlayerController : MonoBehaviour
         cameraMainTransform.rotation = Quaternion.Slerp(cameraMainTransform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
-    public void InventaireUI()
-    {
-        if (playerInput.actions["Inventaire"].WasReleasedThisFrame())
-        {
-            if (pnl_inventaireOpen)
-            {
-                Pnl_inventaire.SetActive(false);
-                pnl_inventaireOpen = false;
-            }
-            else
-            {
-                Pnl_inventaire.SetActive(true);
-                pnl_inventaireOpen = true;
-            }
-
-        }
-    }
+    
 
     //private void RecupeObject()
     //{
