@@ -44,10 +44,10 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _lightingCutoff: -0.3
-    - _lightingCutoff_1: -0.3
+    - _lightingCutoff: -0.09
+    - _lightingCutoff_1: -0.57
     m_Colors:
-    - _ColorLight: {r: 0.45113918, g: 0.539677, b: 0.6981132, a: 0}
+    - _ColorLight: {r: 1, g: 1, b: 1, a: 0}
     - _Colordark: {r: 0.23949805, g: 0.24347274, b: 0.4339623, a: 0}
     - _Colormid: {r: 0.25075653, g: 0.31130576, b: 0.46226418, a: 0}
     - _Tex_Offset: {r: 0.33, g: 0.66, b: 0, a: 0}
