@@ -5,7 +5,7 @@
     
 ===Réponse1===
     -Photos sent ! #speaker:Ethan  #layout:Left
-#EndGame
+#EndGame:true
     -> DONE
 
 ===Réponse2===

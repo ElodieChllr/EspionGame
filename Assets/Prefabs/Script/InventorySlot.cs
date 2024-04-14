@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour
 {
     public GameObject useButton;
-    public GameObject usePanel;
+    public GameObject pnl_Use;
     public UnityEvent<GameObject> onSlotSelected;
 
 
@@ -26,37 +26,56 @@ public class InventorySlot : MonoBehaviour
         {
             button.onClick.AddListener(SelectSlot);
         }
+
+        inventoryController = FindObjectOfType<InventaireController>();
+
+        Button _button = GetComponent<Button>();
+
+        if (_button != null)
+        {
+            _button.onClick.AddListener(SelectSlot);
+        }
     }
 
     private void Update()
     {
-        GameObject parentObject = GameObject.Find("Pnl_Inventory");
+        //GameObject parentObject = GameObject.Find("Pnl_Inventory");
 
-        if (parentObject != null)
-        {
-            Transform childTransform = parentObject.transform.Find("Pnl_Use");
-            if (childTransform != null)
-            {
-                usePanel = childTransform.gameObject;
-            }
-        }
-        else
-        {
-            usePanel = null;
-        }
+        //if (parentObject != null)
+        //{
+        //    Transform childTransform = parentObject.transform.Find("Pnl_Use");
+        //    if (childTransform != null)
+        //    {
+        //        usePanel = childTransform.gameObject;
+        //    }
+        //}
+        //else
+        //{
+        //    usePanel = null;
+        //}
     }
 
     public void SelectSlot()
     {
+        if (pnl_Use != null)
+        {
+            pnl_Use.SetActive(true);
+        }
+
         inventoryController._OnSlotSelected(gameObject);
-        openUse = true;
         EventSystem.current.SetSelectedGameObject(null);
         inventoryController.SetLastSelectedSlot(this);
+        openUse = true;
     }
 
     public virtual void Utiliser()
     {
         Debug.Log("Action générique de l'objet");
+    }
+
+    public virtual bool IsOpenUse()
+    {
+        return openUse;
     }
 
     //public void OpenUse(GameObject selectedSlot)

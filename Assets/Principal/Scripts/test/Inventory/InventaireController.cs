@@ -208,21 +208,26 @@ public class InventaireController : MonoBehaviour
             }
         }
 
-        InventorySlot[] scripts = FindObjectsOfType<InventorySlot>();
+        InventorySlot[] slots = FindObjectsOfType<InventorySlot>();
+    InventorySlot lastSelectedSlot = null;
+    foreach (InventorySlot slot in slots)
+    {
+        if (slot == null) continue;
 
-        foreach (InventorySlot script in scripts)
+        if (EventSystem.current.currentSelectedGameObject == slot.gameObject)
         {
-            if (script.openUse)
-            {
-                pnl_Use.SetActive(true);
-                bt_use.GetComponent<Selectable>().interactable = true;
-                bt_cancel.GetComponent<Selectable>().interactable = true;
-                EventSystem.current.SetSelectedGameObject(bt_use);
-            }
-            else
-            {
-                pnl_Use.SetActive(false);
-            }
+            lastSelectedSlot = slot;
+            break;
+        }
+    }
+
+    
+        if (lastSelectedSlot != null && lastSelectedSlot.IsOpenUse())
+        {
+            pnl_Use.SetActive(true);
+            bt_use.GetComponent<Selectable>().interactable = true;
+            bt_cancel.GetComponent<Selectable>().interactable = true;
+            EventSystem.current.SetSelectedGameObject(bt_use);
         }
     }
 

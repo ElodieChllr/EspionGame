@@ -5,24 +5,52 @@ using UnityEngine.ProBuilder.Shapes;
 
 public class DoorController : MonoBehaviour
 {
-    public int Phototaken;
-    // Start is called before the first frame update
-    void Start()
+    //public int Phototaken;
+    //// Start is called before the first frame update
+    //void Start()
+    //{
+    //    Phototaken = 0; 
+    //}
+
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    OpenDoor();
+    //}
+    //public void OpenDoor()
+    //{
+    //    if (Phototaken >= 3)
+    //    {
+    //        gameObject.SetActive(false);
+    //        Debug.Log("Door is open");
+    //    }
+    //}
+
+    private void OnEnable()
     {
-        Phototaken = 0; 
+        EventsObjet.KeyUsedEvent.AddListener(OnKeyUsed);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        OpenDoor();
+        EventsObjet.KeyUsedEvent.RemoveListener(OnKeyUsed);
     }
-    public void OpenDoor()
+
+    private void OnKeyUsed()
     {
-        if (Phototaken >= 3)
+        gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
-            gameObject.SetActive(false);
-            Debug.Log("Door is open");
+            CleSlot cleSlot = other.GetComponent<CleSlot>();
+            Debug.Log("in");
+            if (cleSlot != null && cleSlot.CleUtiliser)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }

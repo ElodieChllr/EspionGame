@@ -8,6 +8,7 @@ public class PlayerCollect : MonoBehaviour
 {
     [SerializeField] private GameObject visualInteractionClé;
     [SerializeField] private GameObject visualInteractionCarte;
+    [SerializeField] private GameObject visualInteractionAppareil;
 
     [Header("Clé")]
     public GameObject ClePrefab;
@@ -48,11 +49,26 @@ public class PlayerCollect : MonoBehaviour
         {
             visualInteractionCarte.SetActive(true);
 
-            if (playerInputRef.actions["Interagir"].WasReleasedThisFrame())
-            {
-                gameObject.SetActive(false);
-                lastButtonInstantiated = Instantiate(carteBombePrefab, Vector3.zero, Quaternion.identity, inventoryContent.transform);
-            }            
+            //if (playerInputRef.actions["Interagir"].WasReleasedThisFrame())
+            //{
+            //    gameObject.SetActive(false);
+            //    lastButtonInstantiated = Instantiate(carteBombePrefab, Vector3.zero, Quaternion.identity, inventoryContent.transform);
+            //}
+            visualInteractionClé.SetActive(true);
+            Destroy(obj);
+            lastButtonInstantiated = Instantiate(carteBombePrefab, Vector3.zero, Quaternion.identity, inventoryContent.transform);
+        }
+
+        if (obj.tag == "AppareilPhoto")
+        {
+            visualInteractionAppareil.SetActive(true);
+            Destroy(obj);
+            lastButtonInstantiated = Instantiate(AppareilPhotoPrefab, Vector3.zero, Quaternion.identity, inventoryContent.transform);
+            //if (playerInputRef.actions["Interagir"].IsPressed())
+            //{
+            //    Debug.Log("Clé pris");
+
+            //}            
         }
     }
 
@@ -66,6 +82,11 @@ public class PlayerCollect : MonoBehaviour
         if(obj.CompareTag("CarteAcces"))
         {
             visualInteractionCarte.SetActive(false);
+        }
+
+        if (obj.CompareTag("AppareilPhoto"))
+        {
+            visualInteractionAppareil.SetActive(false);
         }
     }
 

@@ -22,16 +22,16 @@ public class PhotoController : MonoBehaviour
     void Update()
     {
     }
-    public void OnTriggerEnter(Collider other)
-    {
-       if(other.CompareTag("Player") && playerController.isSwitchPressed == true)
-        {
-            DoorController.Phototaken++;
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //   if(other.CompareTag("Player") && playerController.isSwitchPressed == true)
+    //    {
+    //        DoorController.Phototaken++;
          
-            Debug.Log(DoorController.Phototaken);
-            gameObject.SetActive(false);
+    //        Debug.Log(DoorController.Phototaken);
+    //        gameObject.SetActive(false);
 
-        }
-    }
+    //    }
+    //}
    
 }

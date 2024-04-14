@@ -51,12 +51,13 @@ public class DialogueManager : MonoBehaviour
     private const string layoutTag = "layout";
 
     private const string GiveAppareilPhotoTag = "GiveAppareilPhoto";
+    private const string EndGameTag = "EndGame";
 
 
   
     [Header("Inventaire")]
     public GameObject AppareilPhotoPrefab;
-    public GameObject inventoryContent;
+    public Transform spawnAppareilPhoto;
 
 
 
@@ -66,9 +67,9 @@ public class DialogueManager : MonoBehaviour
     public PlayerController playerController;
     //public DialogueTrigger dialogueTriggerRef;
     //public PauseManager pauseManagerRef;
-    
 
 
+    public GameObject pnl_fin;
     //[Header("SwitchFakeItem")]
     //public GameObject aActiver;
     //public GameObject aDesactiver;
@@ -236,8 +237,15 @@ public class DialogueManager : MonoBehaviour
                     break;
 
                 case GiveAppareilPhotoTag:
-                    Instantiate(AppareilPhotoPrefab, Vector3.zero, Quaternion.identity, inventoryContent.transform);
+                    //Instantiate(AppareilPhotoPrefab, Vector3.zero, Quaternion.identity, spawnAppareilPhoto.transform);
+                    Instantiate(AppareilPhotoPrefab, spawnAppareilPhoto.position, spawnAppareilPhoto.rotation);
                     break;
+
+                case EndGameTag:
+                    pnl_fin.SetActive(true);
+                    Time.timeScale = 0f;
+                    break;
+
 
                 default:
                     Debug.Log("Tag came in but is not currently being handled" + tag);

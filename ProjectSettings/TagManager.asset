@@ -7,6 +7,7 @@ TagManager:
   - "Cl\xE9"
   - pnl_Use
   - CarteAcces
+  - AppareilPhoto
   layers:
   - Default
   - TransparentFX
