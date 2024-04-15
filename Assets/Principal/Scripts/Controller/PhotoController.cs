@@ -10,12 +10,15 @@ public class PhotoController : MonoBehaviour
     public DoorController DoorController;
     public PlayerController playerController;
     public GameObject pressA;
+    private bool IsTakenPhoto;
+    public PlayerInput playerInputRef;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-      
-       
+        playerInputRef = player.GetComponent<PlayerInput>();
+        IsTakenPhoto = false;
         
     }
 
@@ -29,10 +32,22 @@ public class PhotoController : MonoBehaviour
         {
             pressA.SetActive(true);
         }
+     
+    }
+
+    public void OnTriggerStay(Collider other)
+    {
+        if (playerInputRef.actions["Photo"].WasPressedThisFrame())
+        {
+            IsTakenPhoto = true;
+            Debug.Log("photo taken");
+            gameObject.SetActive(false);
+        }
     }
     public void OnTriggerExit(Collider other)
     {
         pressA.SetActive(false);
     }
-
+   
+  
 }
