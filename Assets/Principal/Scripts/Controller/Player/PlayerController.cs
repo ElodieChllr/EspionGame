@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public float sprintSpeed = 10f;
     public float jumpingPower;
     public float rotationSpeed = 20f;
-    float velocity = 0.0f;
+    //float velocity = 0.0f;
 
     private Transform cameraMainTransform;
 
@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     public PlayerCollect playerCollectRef;
 
     PlayerMap playerMap;
+
+    public AnimationCurve accelerationCurve;
 
     public PlayerInput playerInput;
     //public InventaireController inventaireController;
@@ -78,38 +80,47 @@ public class PlayerController : MonoBehaviour
 
     public void Move_and_Cam()
     {
-        //Move
         Vector3 movement = playerMap.Player.Movement.ReadValue<Vector3>();
-        //rb_player.velocity = new Vector3(movement.x * moveSpeed * Time.fixedDeltaTime, rb_player.velocity.y * Time.fixedDeltaTime, movement.z * moveSpeed * Time.fixedDeltaTime);
+        float moveMagnitude = movement.magnitude;
 
-        float _moveSpeed = Mathf.Clamp01(movement.magnitude);
-        animator.SetFloat("Player_Velocity", _moveSpeed);
-        float speed = _moveSpeed * moveSpeed;
+        float speed = moveMagnitude * moveSpeed;
 
-       
+
+        animator.SetFloat("Player_Velocity", moveMagnitude);
+
+
+
 
         //CAM
         movement.Normalize();
 
+        Vector3 cameraForward = cameraMainTransform.forward;
+        cameraForward.y = 0f;
+        Vector3 movementDirection = Quaternion.LookRotation(cameraForward) * movement.normalized;
+        transform.Translate(movementDirection * speed * Time.fixedDeltaTime, Space.World);
+
+        if (movementDirection != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(movementDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+
+
         
-        movement = Quaternion.Euler(0f, cameraMainTransform.eulerAngles.y, 0f) * movement;
 
 
-        rb_player.velocity = movement * moveSpeed; //c'est ici que ça fait bug le jump
+        //if (playerInput.actions["Sprint"].IsInProgress())
+        //{
+        //    rb_player.velocity = movement * sprintSpeed;
+        //}
 
 
-        if (playerInput.actions["Sprint"].IsInProgress())
-        {
-            rb_player.velocity = movement * sprintSpeed;
-        }
-
-
-        if (movement != Vector3.zero)
-        {
-            float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
-            Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-        }
+        //if (movement != Vector3.zero)
+        //{
+        //    float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
+        //    Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
+        //    transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        //}
 
 
         Vector3 desiredPosition = transform.position - offset;

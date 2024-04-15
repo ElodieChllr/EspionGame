@@ -247,6 +247,7 @@ public class InventaireController : MonoBehaviour
     public void Cancel()
     {
         usePanel.SetActive(false);
+        //SetLastSelectedSlot();
         InventorySlot[] scripts = FindObjectsOfType<InventorySlot>();
         foreach (InventorySlot script in scripts)
         {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CarteAccesSlot : InventorySlot
 {
     public bool CarteUtiliser = false;
+    //public Animator DoorAnimator;
     public override void Utiliser()
     {
         base.Utiliser();

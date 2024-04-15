@@ -1,6 +1,7 @@
 using Ink.Parsed;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.ProBuilder.Shapes;
 
@@ -29,9 +30,15 @@ public class DoorController : MonoBehaviour
     public GameObject txt_objectif;
     public GameObject txt_objectif2;
 
+    public Animator doorAnimator;
+
+    private void Start()
+    {
+        //doorAnimator = GetComponent<Animator>();
+    }
     private void OnEnable()
     {
-        EventsObjet.CarteAccesUsedEvent.AddListener(OnCarteUsed);
+        
     }
 
     private void OnDisable()
@@ -41,21 +48,27 @@ public class DoorController : MonoBehaviour
 
     private void OnCarteUsed()
     {
-        gameObject.SetActive(false);
+        doorAnimator.SetTrigger("OpenDoor");
         txt_objectif.SetActive(false);
         txt_objectif2.SetActive(true);
+
     }
     
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("InTrigger");
             CarteAccesSlot carteSlot = other.GetComponent<CarteAccesSlot>();
             if (carteSlot != null && carteSlot.CarteUtiliser)
             {
-                gameObject.SetActive(false);
+                Debug.Log("UtiliserCarte");
+                EventsObjet.CarteAccesUsedEvent.AddListener(OnCarteUsed);
+                //gameObject.SetActive(false);
             }
         }
     }
+
+    
 }

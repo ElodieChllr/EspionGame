@@ -31,10 +31,10 @@ public class InventorySlot : MonoBehaviour
 
         Button _button = GetComponent<Button>();
 
-        if (_button != null)
-        {
-            _button.onClick.AddListener(SelectSlot);
-        }
+        //if (_button != null)
+        //{
+        //    _button.onClick.AddListener(SelectSlot);
+        //}
     }
 
     private void Update()
@@ -62,10 +62,10 @@ public class InventorySlot : MonoBehaviour
             pnl_Use.SetActive(true);
         }
 
-        inventoryController._OnSlotSelected(gameObject);
-        EventSystem.current.SetSelectedGameObject(null);
-        inventoryController.SetLastSelectedSlot(this);
         openUse = true;
+        inventoryController._OnSlotSelected(gameObject);
+        //EventSystem.current.SetSelectedGameObject(null);
+        inventoryController.SetLastSelectedSlot(this);
     }
 
     public virtual void Utiliser()
