@@ -18,14 +18,14 @@ public class PlayerController : MonoBehaviour
     public float sprintSpeed = 10f;
     public float jumpingPower;
     public float rotationSpeed = 20f;
-
+    float velocity = 0.0f;
 
     private Transform cameraMainTransform;
 
     private Vector3 offset;
     private PlayerMap controls;
     private Vector2 tiltValue;
-    private Animator animator;
+    public Animator animator;
 
     public bool isSwitchPressed;
 
@@ -80,10 +80,13 @@ public class PlayerController : MonoBehaviour
     {
         //Move
         Vector3 movement = playerMap.Player.Movement.ReadValue<Vector3>();
-        rb_player.velocity = new Vector3(movement.x * moveSpeed * Time.fixedDeltaTime, rb_player.velocity.y * Time.fixedDeltaTime, movement.z * moveSpeed * Time.fixedDeltaTime);
+        //rb_player.velocity = new Vector3(movement.x * moveSpeed * Time.fixedDeltaTime, rb_player.velocity.y * Time.fixedDeltaTime, movement.z * moveSpeed * Time.fixedDeltaTime);
 
-        float _moveSpeed = movement.magnitude;
-        animator.SetFloat("Player_Velocity", moveSpeed);
+        float _moveSpeed = Mathf.Clamp01(movement.magnitude);
+        animator.SetFloat("Player_Velocity", _moveSpeed);
+        float speed = _moveSpeed * moveSpeed;
+
+       
 
         //CAM
         movement.Normalize();
