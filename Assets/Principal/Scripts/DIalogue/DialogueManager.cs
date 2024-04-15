@@ -118,7 +118,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
         // return right away if dialogue isn't playing
         if (!dialogueIsPlaying)
         {

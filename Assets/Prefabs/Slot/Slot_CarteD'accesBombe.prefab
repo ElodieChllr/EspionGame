@@ -222,8 +222,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useButton: {fileID: 0}
-  usePanel: {fileID: 0}
+  pnl_Use: {fileID: 0}
   onSlotSelected:
     m_PersistentCalls:
       m_Calls: []
   openUse: 0
+  CarteUtiliser: 0
