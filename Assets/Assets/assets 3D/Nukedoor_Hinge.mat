@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: gROUND
+  m_Name: Nukedoor_Hinge
   m_Shader: {fileID: -6465566751694194690, guid: dc545830ced7204479f74bb46e00b9b0,
     type: 3}
   m_Parent: {fileID: 0}
@@ -41,12 +41,12 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _lightingCutoff: -1
-    - _lightingCutoff_1: 1
+    - _lightingCutoff_1: 0.55
     m_Colors:
     - _ColorLight: {r: 0.5747152, g: 0.72637844, b: 0.99056596, a: 0}
     - _Colordark: {r: 0.5849056, g: 0.36142755, b: 0.36142755, a: 0}
     - _Colormid: {r: 0.7735849, g: 0.63857245, b: 0.6679229, a: 0}
-    - _Lightcolor: {r: 0.5660378, g: 0.504628, b: 0.504628, a: 0}
+    - _Lightcolor: {r: 0.6509434, g: 0.5557583, b: 0.5557583, a: 0}
     - _Tex_Offset: {r: 0.33, g: 0.66, b: 0, a: 0}
     - _Tex_Scale: {r: 0.25, g: 0.25, b: 0, a: 0}
   m_BuildTextureStacks: []
