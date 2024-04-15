@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Outline
-  m_Shader: {fileID: -6465566751694194690, guid: 0fe2b0d5c5094b04f8c5d5642c43f7be,
+  m_Name: Walls
+  m_Shader: {fileID: -6465566751694194690, guid: dc545830ced7204479f74bb46e00b9b0,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -38,13 +38,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Outline_Thickness: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _lightingCutoff: -1
+    - _lightingCutoff_1: 1
     m_Colors:
-    - _Outline_Color: {r: 0.33962262, g: 0.2739409, b: 0.2739409, a: 0}
+    - _ColorLight: {r: 0.5747152, g: 0.72637844, b: 0.99056596, a: 0}
+    - _Colordark: {r: 0.5849056, g: 0.36142755, b: 0.36142755, a: 0}
+    - _Colormid: {r: 0.7735849, g: 0.63857245, b: 0.6679229, a: 0}
+    - _Lightcolor: {r: 0.6886792, g: 0.6529459, b: 0.6529459, a: 0}
+    - _Tex_Offset: {r: 0.33, g: 0.66, b: 0, a: 0}
+    - _Tex_Scale: {r: 0.25, g: 0.25, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &8609072072837910498
+--- !u!114 &7415200428430386178
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
