@@ -9,6 +9,7 @@ public class PhotoController : MonoBehaviour
     
     public DoorController DoorController;
     public PlayerController playerController;
+    public GameObject pressA;
 
     // Start is called before the first frame update
     void Start()
@@ -22,16 +23,16 @@ public class PhotoController : MonoBehaviour
     void Update()
     {
     }
-    //public void OnTriggerEnter(Collider other)
-    //{
-    //   if(other.CompareTag("Player") && playerController.isSwitchPressed == true)
-    //    {
-    //        DoorController.Phototaken++;
-         
-    //        Debug.Log(DoorController.Phototaken);
-    //        gameObject.SetActive(false);
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") )
+        {
+            pressA.SetActive(true);
+        }
+    }
+    public void OnTriggerExit(Collider other)
+    {
+        pressA.SetActive(false);
+    }
 
-    //    }
-    //}
-   
 }
