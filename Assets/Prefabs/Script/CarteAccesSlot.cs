@@ -6,7 +6,6 @@ public class CarteAccesSlot : InventorySlot
 {
     public bool CarteUtiliser = false;
     public DoorController doorControllerRef;
-    //public Animator DoorAnimator;
 
 
     
@@ -15,8 +14,6 @@ public class CarteAccesSlot : InventorySlot
         base.Utiliser();
         Debug.Log("Utilisation de la carte d'accès");
         CarteUtiliser = true;
-
-        //EventsObjet.CarteAccesUsedEvent.Invoke();
 
         if(CarteUtiliser == true && doorControllerRef.OnTrigger == true)
         {

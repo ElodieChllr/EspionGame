@@ -1,7 +1,6 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
-//using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -18,7 +17,6 @@ public class PlayerController : MonoBehaviour
     public float sprintSpeed = 10f;
     public float jumpingPower;
     public float rotationSpeed = 20f;
-    //float velocity = 0.0f;
 
     private Transform cameraMainTransform;
 
@@ -39,7 +37,6 @@ public class PlayerController : MonoBehaviour
     public AnimationCurve accelerationCurve;
 
     public PlayerInput playerInput;
-    //public InventaireController inventaireController;
 
     [Header("Boutons")]
     public GameObject bt_Inventaire;
@@ -63,18 +60,10 @@ public class PlayerController : MonoBehaviour
     {
         Move_and_Cam();
     }
-    // Update is called once per frame
+
     void Update()
     {
-        //tiltValue = controls.Player.Movement.ReadValue<Vector3>();
-        //float tiltX = tiltValue.x;
-        //float tiltY = tiltValue.y;
 
-        //Utiliser tiltX et tiltY pour contrôler votre jeu en fonction de l'inclinaison du joystick
-        //Debug.Log("Tilt X: " + tiltX + ", Tilt Y: " + tiltY);
-        //AnimManager(tiltX, tiltY);
-
-        //InventaireUI();
     }
 
 
@@ -106,23 +95,6 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        
-
-
-        //if (playerInput.actions["Sprint"].IsInProgress())
-        //{
-        //    rb_player.velocity = movement * sprintSpeed;
-        //}
-
-
-        //if (movement != Vector3.zero)
-        //{
-        //    float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
-        //    Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
-        //    transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-        //}
-
-
         Vector3 desiredPosition = transform.position - offset;
         Vector3 smoothedPosition = Vector3.Lerp(cameraMainTransform.position, desiredPosition, Time.deltaTime * 5f);
         cameraMainTransform.position = smoothedPosition;
@@ -131,13 +103,6 @@ public class PlayerController : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(transform.position - cameraMainTransform.position, Vector3.up);
         cameraMainTransform.rotation = Quaternion.Slerp(cameraMainTransform.rotation, lookRotation, Time.deltaTime * 5f);
     }
-
-    
-
-    //private void RecupeObject()
-    //{
-
-    //}
 
     public void Switch(InputAction.CallbackContext context)
     {
@@ -175,20 +140,6 @@ public class PlayerController : MonoBehaviour
         CameraSwitch.Unregister(TpsCam);
         CameraSwitch.Unregister(FpsCam);
     }
-
-
-
-    //public void AnimManager(float X, float Z)
-    //{
-    //    Vector2 velocity = new Vector2(X,Z); // recup les joysticks
-    //    float animationMove = velocity.magnitude;
-    //    if(velocity.magnitude >=1f)
-    //    {
-    //        velocity= velocity.normalized;
-    //    }
-    //    animator.SetFloat("Player_Velocity", animationMove);
-    //}
-
 
   
 
