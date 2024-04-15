@@ -10,7 +10,7 @@ public class PhotoController : MonoBehaviour
     public DoorController DoorController;
     public PlayerController playerController;
     public GameObject pressA;
-    private bool IsTakenPhoto;
+    public bool IsTakenPhoto;
     public PlayerInput playerInputRef;
     public GameObject player;
 
@@ -37,7 +37,7 @@ public class PhotoController : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if (playerInputRef.actions["Photo"].WasPressedThisFrame())
+        if (other.tag == "Player" && playerInputRef.actions["Photo"].IsPressed())
         {
             IsTakenPhoto = true;
             Debug.Log("photo taken");
