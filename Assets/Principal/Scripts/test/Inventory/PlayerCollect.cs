@@ -9,6 +9,7 @@ public class PlayerCollect : MonoBehaviour
     [SerializeField] private GameObject visualInteractionClé;
     [SerializeField] private GameObject visualInteractionCarte;
     [SerializeField] private GameObject visualInteractionAppareil;
+    [SerializeField] private GameObject visualInteractionMalette;
 
     [Header("Clé")]
     public GameObject ClePrefab;
@@ -35,8 +36,9 @@ public class PlayerCollect : MonoBehaviour
     {
         if (obj.tag == "Clé")
         {
-            visualInteractionClé.SetActive(true);
-            Destroy(obj);
+            //visualInteractionClé.SetActive(true);
+            obj.gameObject.SetActive(false);
+            //Destroy(obj);
             lastButtonInstantiated = Instantiate(ClePrefab, Vector3.zero, Quaternion.identity, inventoryContent.transform);
             //if (playerInputRef.actions["Interagir"].IsPressed())
             //{
@@ -54,21 +56,28 @@ public class PlayerCollect : MonoBehaviour
             //    gameObject.SetActive(false);
             //    lastButtonInstantiated = Instantiate(carteBombePrefab, Vector3.zero, Quaternion.identity, inventoryContent.transform);
             //}
-            visualInteractionClé.SetActive(true);
-            Destroy(obj);
+            //visualInteractionClé.SetActive(true);
+            obj.gameObject.SetActive(false);
+            //Destroy(obj);
             lastButtonInstantiated = Instantiate(carteBombePrefab, Vector3.zero, Quaternion.identity, inventoryContent.transform);
         }
 
         if (obj.tag == "AppareilPhoto")
         {
-            visualInteractionAppareil.SetActive(true);
-            Destroy(obj);
+            //visualInteractionAppareil.SetActive(true);
             lastButtonInstantiated = Instantiate(AppareilPhotoPrefab, Vector3.zero, Quaternion.identity, inventoryContent.transform);
+            obj.gameObject.SetActive(false);
+            //Destroy(obj);
             //if (playerInputRef.actions["Interagir"].IsPressed())
             //{
             //    Debug.Log("Clé pris");
 
             //}            
+        }
+
+        if(obj.tag == "Malette")
+        {
+            visualInteractionMalette.SetActive(true);
         }
     }
 
@@ -87,6 +96,11 @@ public class PlayerCollect : MonoBehaviour
         if (obj.CompareTag("AppareilPhoto"))
         {
             visualInteractionAppareil.SetActive(false);
+        }
+
+        if (obj.tag == "Malette")
+        {
+            visualInteractionMalette.SetActive(false);
         }
     }
 

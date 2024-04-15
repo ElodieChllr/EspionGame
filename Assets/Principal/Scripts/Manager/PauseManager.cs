@@ -43,6 +43,7 @@ public class PauseManager : MonoBehaviour
     public void DesactivateMenu()
     {
         Time.timeScale = 1f;
+        isPaused = false;
         pnl_Pause.SetActive(false);
     }
 

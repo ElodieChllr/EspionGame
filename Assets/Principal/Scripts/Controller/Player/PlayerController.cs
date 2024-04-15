@@ -1,7 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph;
+//using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -82,7 +82,8 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = playerMap.Player.Movement.ReadValue<Vector3>();
         rb_player.velocity = new Vector3(movement.x * moveSpeed * Time.fixedDeltaTime, rb_player.velocity.y * Time.fixedDeltaTime, movement.z * moveSpeed * Time.fixedDeltaTime);
 
-
+        float _moveSpeed = movement.magnitude;
+        animator.SetFloat("Player_Velocity", moveSpeed);
 
         //CAM
         movement.Normalize();
@@ -163,16 +164,16 @@ public class PlayerController : MonoBehaviour
 
 
 
-    public void AnimManager(float X, float Z)
-    {
-        Vector2 velocity = new Vector2(X,Z); // recup les joysticks
-        float animationMove = velocity.magnitude;
-        if(velocity.magnitude >=1f)
-        {
-            velocity= velocity.normalized;
-        }
-        animator.SetFloat("Player_Velocity", animationMove);
-    }
+    //public void AnimManager(float X, float Z)
+    //{
+    //    Vector2 velocity = new Vector2(X,Z); // recup les joysticks
+    //    float animationMove = velocity.magnitude;
+    //    if(velocity.magnitude >=1f)
+    //    {
+    //        velocity= velocity.normalized;
+    //    }
+    //    animator.SetFloat("Player_Velocity", animationMove);
+    //}
 
 
   

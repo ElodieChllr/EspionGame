@@ -1,3 +1,4 @@
+using Ink.Parsed;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,29 +26,33 @@ public class DoorController : MonoBehaviour
     //        Debug.Log("Door is open");
     //    }
     //}
+    public GameObject txt_objectif;
+    public GameObject txt_objectif2;
 
     private void OnEnable()
     {
-        EventsObjet.KeyUsedEvent.AddListener(OnKeyUsed);
+        EventsObjet.CarteAccesUsedEvent.AddListener(OnCarteUsed);
     }
 
     private void OnDisable()
     {
-        EventsObjet.KeyUsedEvent.RemoveListener(OnKeyUsed);
+        EventsObjet.CarteAccesUsedEvent.RemoveListener(OnCarteUsed);
     }
 
-    private void OnKeyUsed()
+    private void OnCarteUsed()
     {
         gameObject.SetActive(false);
+        txt_objectif.SetActive(false);
+        txt_objectif2.SetActive(true);
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            CleSlot cleSlot = other.GetComponent<CleSlot>();
-            Debug.Log("in");
-            if (cleSlot != null && cleSlot.CleUtiliser)
+            CarteAccesSlot carteSlot = other.GetComponent<CarteAccesSlot>();
+            if (carteSlot != null && carteSlot.CarteUtiliser)
             {
                 gameObject.SetActive(false);
             }
