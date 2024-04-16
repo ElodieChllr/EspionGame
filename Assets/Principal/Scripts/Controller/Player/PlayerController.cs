@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] CinemachineVirtualCamera TpsCam, FpsCam; 
+    [SerializeField] CinemachineVirtualCamera TpsCam/*, FpsCam*/; 
     public Rigidbody rb_player;
     public Transform cameraPivot;
 
@@ -104,41 +104,41 @@ public class PlayerController : MonoBehaviour
         cameraMainTransform.rotation = Quaternion.Slerp(cameraMainTransform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
-    public void Switch(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            Debug.Log("switchperformed");
-            if(CameraSwitch.IsActiveCam(TpsCam))
-            {
-                CameraSwitch.Switch(FpsCam);
-                isSwitchPressed =true;
+    //public void Switch(InputAction.CallbackContext context)
+    //{
+    //    if (context.performed)
+    //    {
+    //        Debug.Log("switchperformed");
+    //        if(CameraSwitch.IsActiveCam(TpsCam))
+    //        {
+    //            CameraSwitch.Switch(FpsCam);
+    //            isSwitchPressed =true;
 
-            }
-            else if (CameraSwitch.IsActiveCam(FpsCam))
-            {
-                CameraSwitch.Switch(TpsCam);
-            }
+    //        }
+    //        else if (CameraSwitch.IsActiveCam(FpsCam))
+    //        {
+    //            CameraSwitch.Switch(TpsCam);
+    //        }
 
-        }
+    //    }
         
-    }
+    //}
 
 
     private void OnEnable()
     {
         playerMap.Enable();
 
-        CameraSwitch.Register(TpsCam);
-        CameraSwitch.Register(FpsCam);
-        CameraSwitch.Switch(TpsCam);
+        //CameraSwitch.Register(TpsCam);
+        //CameraSwitch.Register(FpsCam);
+        //CameraSwitch.Switch(TpsCam);
     }
 
     private void OnDisable()
     {
         playerMap.Disable();
-        CameraSwitch.Unregister(TpsCam);
-        CameraSwitch.Unregister(FpsCam);
+        //CameraSwitch.Unregister(TpsCam);
+        //CameraSwitch.Unregister(FpsCam);
     }
 
   
