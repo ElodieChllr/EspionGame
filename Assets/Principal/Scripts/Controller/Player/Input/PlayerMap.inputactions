@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CamReinitialiser",
+                    "type": "Button",
+                    "id": "699b6243-5a66-4172-b933-1aba89ceda62",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -494,6 +503,28 @@
                     "action": "InventaireNavigation",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "dcadc282-a31e-4a9c-b6ed-af01e3b0fb58",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CamReinitialiser",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "27e34b20-7ab6-43e1-8d74-a330aa49b8af",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CamReinitialiser",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

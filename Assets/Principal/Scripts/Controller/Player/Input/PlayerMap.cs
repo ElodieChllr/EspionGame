@@ -107,6 +107,15 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CamReinitialiser"",
+                    ""type"": ""Button"",
+                    ""id"": ""699b6243-5a66-4172-b933-1aba89ceda62"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -516,6 +525,28 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""action"": ""InventaireNavigation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dcadc282-a31e-4a9c-b6ed-af01e3b0fb58"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CamReinitialiser"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""27e34b20-7ab6-43e1-8d74-a330aa49b8af"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CamReinitialiser"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -621,6 +652,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         m_Player_Inventaire = m_Player.FindAction("Inventaire", throwIfNotFound: true);
         m_Player_Switch = m_Player.FindAction("Switch", throwIfNotFound: true);
         m_Player_InventaireNavigation = m_Player.FindAction("InventaireNavigation", throwIfNotFound: true);
+        m_Player_CamReinitialiser = m_Player.FindAction("CamReinitialiser", throwIfNotFound: true);
         // InventaireNavigation
         m_InventaireNavigation = asset.FindActionMap("InventaireNavigation", throwIfNotFound: true);
         m_InventaireNavigation_Up = m_InventaireNavigation.FindAction("Up", throwIfNotFound: true);
@@ -697,6 +729,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Inventaire;
     private readonly InputAction m_Player_Switch;
     private readonly InputAction m_Player_InventaireNavigation;
+    private readonly InputAction m_Player_CamReinitialiser;
     public struct PlayerActions
     {
         private @PlayerMap m_Wrapper;
@@ -710,6 +743,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         public InputAction @Inventaire => m_Wrapper.m_Player_Inventaire;
         public InputAction @Switch => m_Wrapper.m_Player_Switch;
         public InputAction @InventaireNavigation => m_Wrapper.m_Player_InventaireNavigation;
+        public InputAction @CamReinitialiser => m_Wrapper.m_Player_CamReinitialiser;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -746,6 +780,9 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
             @InventaireNavigation.started += instance.OnInventaireNavigation;
             @InventaireNavigation.performed += instance.OnInventaireNavigation;
             @InventaireNavigation.canceled += instance.OnInventaireNavigation;
+            @CamReinitialiser.started += instance.OnCamReinitialiser;
+            @CamReinitialiser.performed += instance.OnCamReinitialiser;
+            @CamReinitialiser.canceled += instance.OnCamReinitialiser;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -777,6 +814,9 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
             @InventaireNavigation.started -= instance.OnInventaireNavigation;
             @InventaireNavigation.performed -= instance.OnInventaireNavigation;
             @InventaireNavigation.canceled -= instance.OnInventaireNavigation;
+            @CamReinitialiser.started -= instance.OnCamReinitialiser;
+            @CamReinitialiser.performed -= instance.OnCamReinitialiser;
+            @CamReinitialiser.canceled -= instance.OnCamReinitialiser;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -875,6 +915,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         void OnInventaire(InputAction.CallbackContext context);
         void OnSwitch(InputAction.CallbackContext context);
         void OnInventaireNavigation(InputAction.CallbackContext context);
+        void OnCamReinitialiser(InputAction.CallbackContext context);
     }
     public interface IInventaireNavigationActions
     {

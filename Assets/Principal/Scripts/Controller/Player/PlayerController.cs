@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private PlayerMap controls;
     private Vector2 tiltValue;
     public Animator animator;
+    public Transform InitialCamPos;
+    public Transform camTransfome;
 
     public bool isSwitchPressed;
 
@@ -42,11 +44,14 @@ public class PlayerController : MonoBehaviour
     public GameObject bt_Inventaire;
     public GameObject bt_SlotBackground;
 
+
     void Start()
     {
         animator = GetComponent<Animator>();    
         rb_player = GetComponent<Rigidbody>();
         isSwitchPressed = false;
+
+       
 
     }
     private void Awake()
@@ -59,6 +64,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move_and_Cam();
+        CameraReset();
+
     }
 
     void Update()
@@ -102,8 +109,21 @@ public class PlayerController : MonoBehaviour
 
         Quaternion lookRotation = Quaternion.LookRotation(transform.position - cameraMainTransform.position, Vector3.up);
         cameraMainTransform.rotation = Quaternion.Slerp(cameraMainTransform.rotation, lookRotation, Time.deltaTime * 5f);
+
+
+        
     }
 
+    void CameraReset()
+    {
+        if (playerInput.actions["CamReinitialiser"].WasReleasedThisFrame())
+        {
+            camTransfome.position = InitialCamPos.position;
+            camTransfome.rotation = InitialCamPos.rotation;
+        }
+    }
+
+    
     //public void Switch(InputAction.CallbackContext context)
     //{
     //    if (context.performed)
