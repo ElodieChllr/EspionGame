@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public float jumpingPower;
     public float rotationSpeed = 20f;
 
+    public float globalSpeed;
+
     private Transform cameraMainTransform;
 
     private Vector3 offset;
@@ -79,7 +81,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = playerMap.Player.Movement.ReadValue<Vector3>();
         float moveMagnitude = movement.magnitude;
 
-        float speed = moveMagnitude * moveSpeed;
+        globalSpeed = moveMagnitude * moveSpeed;
 
 
         animator.SetFloat("Player_Velocity", moveMagnitude);
@@ -93,7 +95,7 @@ public class PlayerController : MonoBehaviour
         Vector3 cameraForward = cameraMainTransform.forward;
         cameraForward.y = 0f;
         Vector3 movementDirection = Quaternion.LookRotation(cameraForward) * movement.normalized;
-        transform.Translate(movementDirection * speed * Time.fixedDeltaTime, Space.World);
+        transform.Translate(movementDirection * globalSpeed * Time.fixedDeltaTime, Space.World);
 
         if (movementDirection != Vector3.zero)
         {
