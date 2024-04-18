@@ -336,6 +336,7 @@ public class InventaireController : MonoBehaviour
     public void SetLastSelectedSlot(InventorySlot slot)
     {
         lastSelectedSlot = slot;
+         
     }
 
     public void Utiliser()

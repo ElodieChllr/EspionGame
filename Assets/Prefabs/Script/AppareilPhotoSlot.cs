@@ -5,6 +5,8 @@ using UnityEngine;
 public class AppareilPhotoSlot : InventorySlot
 {
     public bool AppareilPhotoUtiliser = false;
+
+    public string CleDescription;
     public override void Utiliser()
     {
         base.Utiliser();

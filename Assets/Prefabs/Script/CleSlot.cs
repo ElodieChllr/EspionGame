@@ -6,6 +6,8 @@ public class CleSlot : InventorySlot
 {
     public bool CleUtiliser = false;
     public DoorCle doorCleRef;
+
+    public string CleDescription;
     public override void Utiliser()
     {
         base.Utiliser();

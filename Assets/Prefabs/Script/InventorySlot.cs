@@ -11,6 +11,7 @@ public class InventorySlot : MonoBehaviour
     public GameObject pnl_Use;
     public UnityEvent<GameObject> onSlotSelected;
 
+    public Text txt_Description;
 
     private InventaireController inventoryController;
 
@@ -64,8 +65,8 @@ public class InventorySlot : MonoBehaviour
 
         openUse = true;
         inventoryController._OnSlotSelected(gameObject);
-        //EventSystem.current.SetSelectedGameObject(null);
         inventoryController.SetLastSelectedSlot(this);
+        
     }
 
     public virtual void Utiliser()
