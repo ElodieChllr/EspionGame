@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -11,7 +12,9 @@ public class InventorySlot : MonoBehaviour
     public GameObject pnl_Use;
     public UnityEvent<GameObject> onSlotSelected;
 
-    public Text txt_Description;
+    public string description;
+
+    public Text txt_Description; 
 
     private InventaireController inventoryController;
 
@@ -21,16 +24,15 @@ public class InventorySlot : MonoBehaviour
     {
         inventoryController = FindObjectOfType<InventaireController>();
 
+
+        txt_Description = GameObject.Find("Txt_Description").GetComponent<Text>(); 
+
         Button button = GetComponent<Button>();
 
         if (button != null)
         {
             button.onClick.AddListener(SelectSlot);
         }
-
-        inventoryController = FindObjectOfType<InventaireController>();
-
-        Button _button = GetComponent<Button>();
 
         //if (_button != null)
         //{
@@ -66,7 +68,12 @@ public class InventorySlot : MonoBehaviour
         openUse = true;
         inventoryController._OnSlotSelected(gameObject);
         inventoryController.SetLastSelectedSlot(this);
-        
+
+        //txt_Description.text = description;
+        Debug.Log(this.description);
+        txt_Description.text = description;
+
+
     }
 
     public virtual void Utiliser()

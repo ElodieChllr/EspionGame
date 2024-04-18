@@ -226,5 +226,8 @@ MonoBehaviour:
   onSlotSelected:
     m_PersistentCalls:
       m_Calls: []
+  description: Access card
+  txt_Description: {fileID: 0}
   openUse: 0
   CarteUtiliser: 0
+  doorControllerRef: {fileID: 0}

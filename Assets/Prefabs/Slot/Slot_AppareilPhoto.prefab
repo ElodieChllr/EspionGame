@@ -147,11 +147,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useButton: {fileID: 0}
-  usePanel: {fileID: 0}
+  pnl_Use: {fileID: 0}
   onSlotSelected:
     m_PersistentCalls:
       m_Calls: []
+  description: Camera
+  txt_Description: {fileID: 0}
   openUse: 0
+  AppareilPhotoUtiliser: 0
 --- !u!1 &6440558362268215662
 GameObject:
   m_ObjectHideFlags: 0

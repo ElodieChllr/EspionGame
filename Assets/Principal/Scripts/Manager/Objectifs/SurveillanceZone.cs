@@ -13,9 +13,22 @@ public class SurveillanceZone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerControllerRef.globalSpeed > 3)
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("Trop vite");
+            if (playerControllerRef.globalSpeed > 3)
+            {
+                Debug.Log("Trop vite");
+            }
         }
     }
 }

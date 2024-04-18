@@ -7,7 +7,7 @@ public class CarteAccesSlot : InventorySlot
     public bool CarteUtiliser = false;
     public DoorController doorControllerRef;
 
-    public string CarteAccesDescription;
+    //public string CarteAccesDescription;
 
     public override void Utiliser()
     {
