@@ -11,9 +11,11 @@ public class DoorController : MonoBehaviour
     public GameObject txt_objectif2;
     public bool OnTrigger = false;
     public Animator doorAnimator;
+    public AudioSource doorSound;
 
     public void OnCarteUsed()
     {
+        doorSound.Play();
         doorAnimator.SetTrigger("OpenDoor");
         txt_objectif.SetActive(false);
         txt_objectif2.SetActive(true);

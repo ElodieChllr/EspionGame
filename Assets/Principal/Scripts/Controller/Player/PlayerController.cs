@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 offset;
     private PlayerMap controls;
     private Vector2 tiltValue;
-    public Animator animator;
+    public Animator playerAnimator;
+    public Animator pnl_Inventaire;
     public Transform InitialCamPos;
     public Transform camTransfome;
 
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();    
+        playerAnimator = GetComponent<Animator>();    
         rb_player = GetComponent<Rigidbody>();
         isSwitchPressed = false;
 
@@ -84,7 +85,7 @@ public class PlayerController : MonoBehaviour
         globalSpeed = moveMagnitude * moveSpeed;
 
 
-        animator.SetFloat("Player_Velocity", moveMagnitude);
+        playerAnimator.SetFloat("Player_Velocity", moveMagnitude);
 
 
 
