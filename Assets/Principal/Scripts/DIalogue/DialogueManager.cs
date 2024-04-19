@@ -15,6 +15,8 @@ public class DialogueManager : MonoBehaviour
     [Header("Ink JSON")]
     [SerializeField] private TextAsset IntroInkJSON;
 
+    
+
     //public GameObject dialogueIntro;
 
 
@@ -63,8 +65,9 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Ref")]
     public PlayerInput playerControls;
+    public PlayerController playerControllerREf;
     public GameObject player;
-    public PlayerController playerController;
+    //public PlayerController playerController;
     //public DialogueTrigger dialogueTriggerRef;
     //public PauseManager pauseManagerRef;
 
@@ -77,6 +80,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
+
         playerControls = player.GetComponent<PlayerInput>();
         if (instance != null)
         {
@@ -133,7 +137,12 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueIsPlaying == true)
         {
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
+            //playerControllerRef.enabled = false;
+            playerControllerREf.moveSpeed = 0;
+            playerControllerREf.rotationSpeed = 0;
+            //playerControls.enabled = false;
+            //playerControllerREf
         }
 
         
@@ -199,6 +208,8 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator ExitDialogueMode()
     {
         dialogueIsPlaying = false;
+        playerControllerREf.moveSpeed = 5;
+        playerControllerREf.rotationSpeed = 20;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
         canTalkAgain = false;

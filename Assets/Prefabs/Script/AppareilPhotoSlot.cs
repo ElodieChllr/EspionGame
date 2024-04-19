@@ -1,3 +1,4 @@
+using Ink.Parsed;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +12,9 @@ public class AppareilPhotoSlot : InventorySlot
     {
         base.Utiliser();
         Debug.Log("Utilisation de l'appareil photo");
-        AppareilPhotoUtiliser = true;
+        
 
+        //StartCoroutine(UseCamera());
         EventsObjet.AppareilPhotoUsedEvent.Invoke();
     }
 
@@ -27,4 +29,11 @@ public class AppareilPhotoSlot : InventorySlot
     {
         return openUse;
     }
+
+    //IEnumerator UseCamera()
+    //{
+    //    AppareilPhotoUtiliser = true;
+    //    yield return new WaitForSeconds(0.5f);
+    //    AppareilPhotoUtiliser = false;
+    //}
 }
