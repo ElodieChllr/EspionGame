@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera TpsCam/*, FpsCam*/; 
     public Rigidbody rb_player;
     public Transform cameraPivot;
-
+    public PhotoController photocontroller;
     [Header("Variables")]
     public float moveSpeed = 5f;
     public float sprintSpeed = 10f;
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public float globalSpeed;
 
     private Transform cameraMainTransform;
-
+    
     private Vector3 offset;
     private PlayerMap controls;
     private Vector2 tiltValue;
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour
         rb_player = GetComponent<Rigidbody>();
         isSwitchPressed = false;
 
-       
+      
 
     }
     private void Awake()
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
+       
     }
 
 

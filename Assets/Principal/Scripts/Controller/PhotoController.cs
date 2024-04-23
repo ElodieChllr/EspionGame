@@ -14,7 +14,9 @@ public class PhotoController : MonoBehaviour
     public PlayerInput playerInputRef;
     public GameObject player;
     public GameObject Flash;
+    public bool isPhoto; 
     private bool bruh;
+    public PlayerController PlayerController;
 
     public bool OnTrigger = false;
     public AppareilPhotoSlot appareilPhotoSlotRef;
@@ -23,10 +25,12 @@ public class PhotoController : MonoBehaviour
     void Start()
     {
         playerInputRef = player.GetComponent<PlayerInput>();
-
+        isPhoto = false;
         IsTakenPhoto = false;
         bruh=false;
         
+
+
     }
 
     // Update is called once per frame
@@ -37,6 +41,7 @@ public class PhotoController : MonoBehaviour
             gameObject.SetActive(false);
         }
 
+       
 
     }
     public void OnTriggerEnter(Collider other)
@@ -57,11 +62,16 @@ public class PhotoController : MonoBehaviour
     {
         if (other.tag == "Player" && playerInputRef.actions["Photo"].IsPressed())
         {           
-            
+            isPhoto = true;
             StartCoroutine(Flashbang());
             Debug.Log("photo taken");
             //gameObject.SetActive(false);
         }
+        else
+        {
+            isPhoto=false;
+        }
+        
     }
     public void OnTriggerExit(Collider other)
     {
@@ -71,11 +81,16 @@ public class PhotoController : MonoBehaviour
    
     private IEnumerator Flashbang ()
     {
+        PlayerController.playerAnimator.SetTrigger("Photo");
+        yield return new WaitForSeconds(0.8f);
         IsTakenPhoto = true;
         Flash.SetActive(true);
+         
         yield return new WaitForSeconds(0.1f);
         Debug.Log("ok");
+       
+
         Flash.SetActive(false); 
-        bruh=true; 
+        bruh=true;
     }  
 }
