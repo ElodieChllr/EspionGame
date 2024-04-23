@@ -15,7 +15,6 @@ public class PauseManager : MonoBehaviour
         playerInputRef = player.GetComponent<PlayerInput>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (playerInputRef.actions["Pause"].WasReleasedThisFrame())

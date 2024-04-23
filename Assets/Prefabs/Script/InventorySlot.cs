@@ -33,29 +33,11 @@ public class InventorySlot : MonoBehaviour
         {
             button.onClick.AddListener(SelectSlot);
         }
-
-        //if (_button != null)
-        //{
-        //    _button.onClick.AddListener(SelectSlot);
-        //}
     }
 
     private void Update()
     {
-        //GameObject parentObject = GameObject.Find("Pnl_Inventory");
 
-        //if (parentObject != null)
-        //{
-        //    Transform childTransform = parentObject.transform.Find("Pnl_Use");
-        //    if (childTransform != null)
-        //    {
-        //        usePanel = childTransform.gameObject;
-        //    }
-        //}
-        //else
-        //{
-        //    usePanel = null;
-        //}
     }
 
     public void SelectSlot()
@@ -70,7 +52,6 @@ public class InventorySlot : MonoBehaviour
         inventoryController._OnSlotSelected(gameObject);
         inventoryController.SetLastSelectedSlot(this);
 
-        //txt_Description.text = description;
         Debug.Log(this.description);
         txt_Description.text = description;
 
@@ -86,13 +67,6 @@ public class InventorySlot : MonoBehaviour
     {
         return openUse;
     }
-
-    //public void OpenUse(GameObject selectedSlot)
-    //{
-    //    openUse = true;
-    //    EventSystem.current.SetSelectedGameObject(null);
-    //    inventoryController.SetLastSelectedSlot(this);
-    //}
 }
 
 

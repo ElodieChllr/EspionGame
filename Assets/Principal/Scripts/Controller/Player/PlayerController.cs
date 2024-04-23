@@ -88,6 +88,10 @@ public class PlayerController : MonoBehaviour
 
         playerAnimator.SetFloat("Player_Velocity", moveMagnitude);
 
+        if (playerInput.actions["Sprint"].IsInProgress())
+        {
+            globalSpeed = moveMagnitude * sprintSpeed;
+        }
 
 
 
