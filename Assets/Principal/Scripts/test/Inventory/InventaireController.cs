@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class InventaireController : MonoBehaviour
 {
+    #region 
     //public static InventaireController Instance { get; private set; }
     //public static bool IsOpening { get; private set; }
     //public SlotController CurrentSlotSelected { get; set; }
@@ -151,6 +152,7 @@ public class InventaireController : MonoBehaviour
     //    }
     //    return null;
     //}
+    #endregion
     public GameObject player;
     public GameObject inventoryPanel;
     public GameObject pnl_Use;
@@ -163,11 +165,14 @@ public class InventaireController : MonoBehaviour
     private PlayerInput playerInputRef;
     private PlayerMap controls;
 
+    public Animator pnl_Inventaire;
+
     private InventorySlot lastSelectedSlot;
     private void Awake()
     {
         playerInputRef = player.GetComponent<PlayerInput>();
         controls = new PlayerMap();
+        //inventoryPanel.SetActive(false);
 
         controls.Player.InventaireNavigation.Enable();
 
@@ -234,7 +239,8 @@ public class InventaireController : MonoBehaviour
     private void OpenInventoryPanel()
     {
         Time.timeScale = 0;
-        inventoryPanel.SetActive(true);
+        pnl_Inventaire.SetTrigger("OpenInventaire");
+        //inventoryPanel.SetActive(true);
         isInventoryOpen = true;
 
         GameObject lastButton = playerCollectRef.GetLastButtonInstantiated();
@@ -268,7 +274,7 @@ public class InventaireController : MonoBehaviour
     private void CloseInventoryPanel()
     {
         Time.timeScale = 1;
-        inventoryPanel.SetActive(false);
+        pnl_Inventaire.SetTrigger("CloseInventaire");
         isInventoryOpen = false;
     }
 
