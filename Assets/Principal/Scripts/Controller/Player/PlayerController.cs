@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb_player;
     public Transform cameraPivot;
     public PhotoController photocontroller;
+
     [Header("Variables")]
     public float moveSpeed = 5f;
     public float sprintSpeed = 10f;
@@ -48,7 +49,8 @@ public class PlayerController : MonoBehaviour
     public GameObject bt_Inventaire;
     public GameObject bt_SlotBackground;
 
-
+    [Header("Sound")]
+    public AudioSource footstep;
 
     void Start()
     {
@@ -87,6 +89,17 @@ public class PlayerController : MonoBehaviour
 
 
         playerAnimator.SetFloat("Player_Velocity", moveMagnitude);
+
+        
+        if (moveMagnitude > 0 && !footstep.isPlaying)
+        {
+            footstep.Play();
+        }
+        
+        else if (moveMagnitude == 0 && footstep.isPlaying)
+        {
+            footstep.Stop();
+        }
 
         if (playerInput.actions["Sprint"].IsInProgress())
         {
