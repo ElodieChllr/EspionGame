@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bt_SlotBackground;
 
 
+
     void Start()
     {
         playerAnimator = GetComponent<Animator>();    
@@ -61,14 +62,14 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerMap = new PlayerMap();
-        cameraMainTransform = Camera.main.transform;
+        //cameraMainTransform = Camera.main.transform;
         controls = new PlayerMap();
         controls.Enable();
     }
     private void FixedUpdate()
     {
         Move_and_Cam();
-        CameraReset();
+        //CameraReset();
 
     }
 
@@ -122,14 +123,14 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void CameraReset()
-    {
-        if (playerInput.actions["CamReinitialiser"].WasReleasedThisFrame())
-        {
-            camTransfome.position = InitialCamPos.position;
-            camTransfome.rotation = InitialCamPos.rotation;
-        }
-    }
+    //void CameraReset()
+    //{
+    //    if (playerInput.actions["CamReinitialiser"].WasReleasedThisFrame())
+    //    {
+    //        camTransfome.position = InitialCamPos.position;
+    //        camTransfome.rotation = InitialCamPos.rotation;
+    //    }
+    //}
 
     
     //public void Switch(InputAction.CallbackContext context)
