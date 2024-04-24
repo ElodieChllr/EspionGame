@@ -28,8 +28,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 tiltValue;
     public Animator playerAnimator;
     public Animator pnl_Inventaire;
-    public Transform InitialCamPos;
-    public Transform camTransfome;
+    //public Transform InitialCamPos;
+    //public Transform camTransform;
 
     public bool isSwitchPressed;
 
@@ -55,16 +55,15 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponent<Animator>();    
         rb_player = GetComponent<Rigidbody>();
         isSwitchPressed = false;
-
-      
-
     }
     private void Awake()
     {
         playerMap = new PlayerMap();
-        //cameraMainTransform = Camera.main.transform;
+        cameraMainTransform = Camera.main.transform;
         controls = new PlayerMap();
         controls.Enable();
+
+
     }
     private void FixedUpdate()
     {
@@ -127,12 +126,12 @@ public class PlayerController : MonoBehaviour
     //{
     //    if (playerInput.actions["CamReinitialiser"].WasReleasedThisFrame())
     //    {
-    //        camTransfome.position = InitialCamPos.position;
-    //        camTransfome.rotation = InitialCamPos.rotation;
+    //        cameraMainTransform.position = 
+    //        cameraMainTransform.rotation = 
     //    }
     //}
 
-    
+
     //public void Switch(InputAction.CallbackContext context)
     //{
     //    if (context.performed)
@@ -150,7 +149,7 @@ public class PlayerController : MonoBehaviour
     //        }
 
     //    }
-        
+
     //}
 
 
