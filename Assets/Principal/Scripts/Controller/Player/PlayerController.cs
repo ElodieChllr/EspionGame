@@ -57,6 +57,8 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponent<Animator>();    
         rb_player = GetComponent<Rigidbody>();
         isSwitchPressed = false;
+
+        Time.timeScale = 1f;
     }
     private void Awake()
     {
