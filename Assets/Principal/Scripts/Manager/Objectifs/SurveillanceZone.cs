@@ -7,14 +7,14 @@ public class SurveillanceZone : MonoBehaviour
 {
     public PlayerController playerControllerRef;
 
-    public GameObject txt_ToMuchNoise;
+    //public GameObject txt_ToMuchNoise;
 
     public GameObject pnl_GameOver;
 
     public GameObject bt_Retry;
     void Start()
     {
-        
+        pnl_GameOver.SetActive(false);
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class SurveillanceZone : MonoBehaviour
 
     IEnumerator ToMuchNoise()
     {
-        txt_ToMuchNoise.SetActive(true);
+        //txt_ToMuchNoise.SetActive(true);
 
         Debug.Log("Trop vite");
         yield return new WaitForSeconds(1);
