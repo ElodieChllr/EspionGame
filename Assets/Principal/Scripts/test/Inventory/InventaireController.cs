@@ -165,14 +165,14 @@ public class InventaireController : MonoBehaviour
     private PlayerInput playerInputRef;
     private PlayerMap controls;
 
-    public Animator pnl_Inventaire;
+    public Animator inventaire_Anim;
 
     private InventorySlot lastSelectedSlot;
     private void Awake()
     {
         playerInputRef = player.GetComponent<PlayerInput>();
         controls = new PlayerMap();
-        //inventoryPanel.SetActive(false);
+        inventoryPanel.SetActive(false);
 
         controls.Player.InventaireNavigation.Enable();
 
@@ -200,8 +200,9 @@ public class InventaireController : MonoBehaviour
 
     private void Update()
     {
-        if (playerInputRef.actions["Inventaire"].WasReleasedThisFrame())
+        if (playerInputRef.actions["Inventaire"].WasReleasedThisFrame() && PauseManager.isPaused == false)
         {
+            
             isInventoryOpen = !isInventoryOpen;
             if (isInventoryOpen)
             {
@@ -238,9 +239,8 @@ public class InventaireController : MonoBehaviour
 
     private void OpenInventoryPanel()
     {
-        Time.timeScale = 0;
-        pnl_Inventaire.SetTrigger("OpenInventaire");
-        //inventoryPanel.SetActive(true);
+        inventoryPanel.SetActive(true);
+        inventaire_Anim.SetTrigger("OpenInventaire");
         isInventoryOpen = true;
 
         GameObject lastButton = playerCollectRef.GetLastButtonInstantiated();
@@ -253,7 +253,6 @@ public class InventaireController : MonoBehaviour
     public void Cancel()
     {
         usePanel.SetActive(false);
-        //SetLastSelectedSlot();
         InventorySlot[] scripts = FindObjectsOfType<InventorySlot>();
         foreach (InventorySlot script in scripts)
         {
@@ -273,11 +272,13 @@ public class InventaireController : MonoBehaviour
 
     private void CloseInventoryPanel()
     {
-        Time.timeScale = 1;
-        pnl_Inventaire.SetTrigger("CloseInventaire");
+        //Time.timeScale = 1;
+        inventaire_Anim.SetTrigger("CloseInventaire");
+        inventoryPanel.SetActive(false);
         isInventoryOpen = false;
     }
 
+    #region Navigation
     private void InventoryNavigationUp()
     {
         Selectable currentButton = EventSystem.current.currentSelectedGameObject?.GetComponent<Selectable>();
@@ -333,16 +334,13 @@ public class InventaireController : MonoBehaviour
             }
         }
     }
-    public void _OnSlotSelected(GameObject slotObject)
-    {
-        
-        Debug.Log("Slot sélectionné : " + slotObject.name);
-    }
+    #endregion
+
 
     public void SetLastSelectedSlot(InventorySlot slot)
     {
         lastSelectedSlot = slot;
-         
+        Debug.Log("Slot sélectionné : " + slot.name);
     }
 
     public void Utiliser()

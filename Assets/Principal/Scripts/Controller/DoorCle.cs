@@ -7,11 +7,15 @@ public class DoorCle : MonoBehaviour
     public GameObject txt_objectif2;
     public GameObject txt_objectif3;
 
+    public Animator endDoor_Anim;
+
     public bool OnTrigger = false;
+
+
 
     public void OnKeyUsed()
     {
-        gameObject.SetActive(false);
+        endDoor_Anim.SetTrigger("OpenDoor");
         txt_objectif2.SetActive(false);
         txt_objectif3.SetActive(true);
     }

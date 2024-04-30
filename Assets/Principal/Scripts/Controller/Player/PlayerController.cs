@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public float globalSpeed;
 
     private Transform cameraMainTransform;
+    public CinemachineFreeLook freeLookCamera;
     
     private Vector3 offset;
     private PlayerMap controls;
@@ -72,7 +73,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move_and_Cam();
-        //CameraReset();
+        CameraReset();
 
     }
 
@@ -137,14 +138,14 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    //void CameraReset()
-    //{
-    //    if (playerInput.actions["CamReinitialiser"].WasReleasedThisFrame())
-    //    {
-    //        cameraMainTransform.position = 
-    //        cameraMainTransform.rotation = 
-    //    }
-    //}
+    void CameraReset()
+    {
+        if (playerInput.actions["CamReinitialiser"].WasReleasedThisFrame())
+        {
+            freeLookCamera.m_XAxis.Value = -0.1f;
+            freeLookCamera.m_YAxis.Value = 0.5f;
+        }
+    }
 
 
     //public void Switch(InputAction.CallbackContext context)

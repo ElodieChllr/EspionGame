@@ -7,15 +7,16 @@ using UnityEngine.InputSystem;
 public class PauseManager : MonoBehaviour
 {
     public GameObject pnl_Pause;
-    private bool isPaused;
+    public static bool isPaused;
+
+    public GameObject pnl_Option;
 
     public PlayerInput playerInputRef;
     public GameObject player;
 
-    //[SerializeField]
-    //private GameObject itemsButton;
-    [SerializeField]
-    private GameObject bt_Pause;
+    [Header("Buton")]
+    [SerializeField] private GameObject bt_Pause;
+    [SerializeField] private GameObject bt_Option;
 
     void Start()
     {
@@ -41,8 +42,8 @@ public class PauseManager : MonoBehaviour
 
     void ActivateMenu()
     {
-        var eventSystem = EventSystem.current;
-        eventSystem.SetSelectedGameObject(bt_Pause, new BaseEventData(eventSystem));
+        //var eventSystem = EventSystem.current;
+        //eventSystem.SetSelectedGameObject(bt_Pause, new BaseEventData(eventSystem));
 
 
         Time.timeScale = 0f;
@@ -58,5 +59,19 @@ public class PauseManager : MonoBehaviour
         pnl_Pause.SetActive(false);
     }
 
+    public void ActivateOption()
+    {
+        var eventSystem = EventSystem.current;
+        eventSystem.SetSelectedGameObject(bt_Option, new BaseEventData(eventSystem));
+        pnl_Option.SetActive(true);
+        pnl_Pause.SetActive(false);
+    }
 
+    public void DesactivateOption()
+    {
+        var eventSystem = EventSystem.current;
+        eventSystem.SetSelectedGameObject(bt_Pause, new BaseEventData(eventSystem));
+        pnl_Option.SetActive(false);
+        pnl_Pause.SetActive(true);
+    }
 }

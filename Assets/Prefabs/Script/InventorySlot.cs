@@ -49,7 +49,6 @@ public class InventorySlot : MonoBehaviour
 
         openUse = true;
         txt_Description = GameObject.Find("Txt_Description").GetComponent<Text>();
-        inventoryController._OnSlotSelected(gameObject);
         inventoryController.SetLastSelectedSlot(this);
 
         Debug.Log(this.description);
