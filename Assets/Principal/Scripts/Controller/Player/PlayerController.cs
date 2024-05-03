@@ -110,6 +110,8 @@ public class PlayerController : MonoBehaviour
         }
 
 
+        footstep.pitch = 1f + (moveMagnitude - 1f) * 0.5f;
+
 
         //CAM
         movement.Normalize();

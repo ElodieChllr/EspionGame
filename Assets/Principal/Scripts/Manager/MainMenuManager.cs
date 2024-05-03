@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour
 {
-    
+    public Animator player_Anim;
+    public GameObject pnl_Transition;
+    public Animator transition;
     void Start()
     {
-        
+        player_Anim.SetTrigger("MainMenuAnim");
     }
 
     // Update is called once per frame
@@ -16,15 +18,22 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
-    public void MyLoadScene(int idScene)
+    public void MyLoadScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(idScene);
+        StartCoroutine(transitionScene());
     }
 
     public void button_exit()
     {
         Application.Quit();
         //UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    IEnumerator transitionScene()
+    {
+        transition.SetTrigger("Transition");
+        yield return new WaitForSeconds(2);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 
 }
