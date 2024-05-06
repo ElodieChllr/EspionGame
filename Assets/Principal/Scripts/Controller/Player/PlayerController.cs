@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
             globalSpeed = moveMagnitude * sprintSpeed;
         }
 
-
+        
         footstep.pitch = 1f + (moveMagnitude - 1f) * 0.5f;
 
 

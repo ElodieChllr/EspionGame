@@ -116,6 +116,15 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slow"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f6fea65-5411-4367-a216-71f0e3f801fb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -547,6 +556,17 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
                     ""action"": ""CamReinitialiser"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8cfcbb7a-dbc0-4a00-988d-9321865ed1d2"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -653,6 +673,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         m_Player_Switch = m_Player.FindAction("Switch", throwIfNotFound: true);
         m_Player_InventaireNavigation = m_Player.FindAction("InventaireNavigation", throwIfNotFound: true);
         m_Player_CamReinitialiser = m_Player.FindAction("CamReinitialiser", throwIfNotFound: true);
+        m_Player_Slow = m_Player.FindAction("Slow", throwIfNotFound: true);
         // InventaireNavigation
         m_InventaireNavigation = asset.FindActionMap("InventaireNavigation", throwIfNotFound: true);
         m_InventaireNavigation_Up = m_InventaireNavigation.FindAction("Up", throwIfNotFound: true);
@@ -730,6 +751,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Switch;
     private readonly InputAction m_Player_InventaireNavigation;
     private readonly InputAction m_Player_CamReinitialiser;
+    private readonly InputAction m_Player_Slow;
     public struct PlayerActions
     {
         private @PlayerMap m_Wrapper;
@@ -744,6 +766,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         public InputAction @Switch => m_Wrapper.m_Player_Switch;
         public InputAction @InventaireNavigation => m_Wrapper.m_Player_InventaireNavigation;
         public InputAction @CamReinitialiser => m_Wrapper.m_Player_CamReinitialiser;
+        public InputAction @Slow => m_Wrapper.m_Player_Slow;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -783,6 +806,9 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
             @CamReinitialiser.started += instance.OnCamReinitialiser;
             @CamReinitialiser.performed += instance.OnCamReinitialiser;
             @CamReinitialiser.canceled += instance.OnCamReinitialiser;
+            @Slow.started += instance.OnSlow;
+            @Slow.performed += instance.OnSlow;
+            @Slow.canceled += instance.OnSlow;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -817,6 +843,9 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
             @CamReinitialiser.started -= instance.OnCamReinitialiser;
             @CamReinitialiser.performed -= instance.OnCamReinitialiser;
             @CamReinitialiser.canceled -= instance.OnCamReinitialiser;
+            @Slow.started -= instance.OnSlow;
+            @Slow.performed -= instance.OnSlow;
+            @Slow.canceled -= instance.OnSlow;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -916,6 +945,7 @@ public partial class @PlayerMap: IInputActionCollection2, IDisposable
         void OnSwitch(InputAction.CallbackContext context);
         void OnInventaireNavigation(InputAction.CallbackContext context);
         void OnCamReinitialiser(InputAction.CallbackContext context);
+        void OnSlow(InputAction.CallbackContext context);
     }
     public interface IInventaireNavigationActions
     {
