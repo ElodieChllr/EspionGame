@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [Header("Variables")]
     public float moveSpeed = 5f;
     public float sprintSpeed = 10f;
+    public float slowSpeed = 0.5f;
     public float jumpingPower;
     public float rotationSpeed = 20f;
 
@@ -109,8 +110,17 @@ public class PlayerController : MonoBehaviour
             globalSpeed = moveMagnitude * sprintSpeed;
         }
 
-        
-        footstep.pitch = 1f + (moveMagnitude - 1f) * 0.5f;
+        if (playerInput.actions["Slow"].IsInProgress())
+        {
+            globalSpeed = moveMagnitude * slowSpeed;
+            playerAnimator.SetFloat("Player_Velocity", 0.1818f);
+            footstep.pitch = 0.5f;
+        }
+        else
+        {
+            
+            footstep.pitch = 1f + (moveMagnitude - 1f) * 0.5f;
+        }
 
 
         //CAM

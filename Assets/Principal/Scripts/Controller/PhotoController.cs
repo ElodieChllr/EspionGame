@@ -16,7 +16,8 @@ public class PhotoController : MonoBehaviour
     public bool isPhoto; 
     private bool bruh;
 
-    
+    public bool tutoFini = false;
+    public GameObject colliderTuto;
 
     public bool OnTrigger = false;
     public AppareilPhotoSlot appareilPhotoSlotRef;
@@ -52,7 +53,10 @@ public class PhotoController : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-       
+       if(tutoFini == true)
+        {
+            colliderTuto.SetActive(false);
+        }
 
     }
     public void OnTriggerEnter(Collider other)
@@ -98,6 +102,7 @@ public class PhotoController : MonoBehaviour
    
     private IEnumerator Flashbang ()
     {
+        tutoFini = true;
         PlayerController.playerAnimator.SetTrigger("Photo");
 
         gamepad.SetMotorSpeeds(vibrationIntensity, vibrationIntensity);

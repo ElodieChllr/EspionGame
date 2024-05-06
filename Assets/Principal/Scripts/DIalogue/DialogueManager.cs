@@ -39,6 +39,7 @@ public class DialogueManager : MonoBehaviour
     private bool canContinueToNextLine = false;
 
     public bool canTalkAgain = true;
+    public GameObject endButton;
 
 
     private Coroutine displayLineCoroutine;
@@ -255,6 +256,8 @@ public class DialogueManager : MonoBehaviour
                 case EndGameTag:
                     pnl_fin.SetActive(true);
                     Time.timeScale = 0f;
+                    var eventSystem = EventSystem.current;
+                    eventSystem.SetSelectedGameObject(endButton, new BaseEventData(eventSystem));
                     break;
 
 
