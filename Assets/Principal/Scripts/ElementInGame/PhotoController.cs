@@ -8,7 +8,6 @@ public class PhotoController : MonoBehaviour
     
     
     public DoorController DoorController;
-    public GameObject pressA;
     public bool IsTakenPhoto;
     public PlayerInput playerInputRef;
     public GameObject player;
@@ -68,7 +67,7 @@ public class PhotoController : MonoBehaviour
             appareilPhotoSlotRef = FindAnyObjectByType<AppareilPhotoSlot>();
             camPng.SetActive(true);
             OnTrigger = true;
-            pressA.SetActive(true);
+           
         }
 
 
@@ -99,7 +98,7 @@ public class PhotoController : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
         OnTrigger = false;
-        pressA.SetActive(false);
+     
         camPng.SetActive(false);
     }
    

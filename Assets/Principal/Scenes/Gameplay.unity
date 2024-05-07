@@ -1268,7 +1268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoorController: {fileID: 0}
-  pressA: {fileID: 1961317332}
   IsTakenPhoto: 0
   playerInputRef: {fileID: 311562656}
   player: {fileID: 311562654}
@@ -19494,7 +19493,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973350987}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00041600532, y: -0.99542284, z: 0.004337497, w: 0.09547009}
+  m_LocalRotation: {x: 0.00041600567, y: -0.99542284, z: 0.004337501, w: 0.09547009}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
