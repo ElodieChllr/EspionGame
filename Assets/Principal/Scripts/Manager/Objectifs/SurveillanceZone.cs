@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class SurveillanceZone : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class SurveillanceZone : MonoBehaviour
     public bool gamePaused = false;
 
     public bool spoted = false;
+
+    public Animator pnl_transitionAnim;
     void Start()
     {
         pnl_GameOver.SetActive(false);
@@ -50,14 +53,17 @@ public class SurveillanceZone : MonoBehaviour
         {
             Debug.Log("Trop vite");
             gamePaused = true;
+            
+            yield return new WaitForSeconds(0.5f);
             playerControllerRef.moveSpeed = 0;
             playerControllerRef.rotationSpeed = 0;
-            yield return new WaitForSeconds(1f);
+            pnl_transitionAnim.SetTrigger("GameOver");
+            yield return new WaitForSeconds(2f);
 
-
-            pnl_GameOver.SetActive(true);
-            var eventSystem = EventSystem.current;
-            eventSystem.SetSelectedGameObject(bt_Retry, new BaseEventData(eventSystem));
+            SceneManager.LoadScene(2);
+            //pnl_GameOver.SetActive(true);
+            //var eventSystem = EventSystem.current;
+            //eventSystem.SetSelectedGameObject(bt_Retry, new BaseEventData(eventSystem));
         }        
     }
 }

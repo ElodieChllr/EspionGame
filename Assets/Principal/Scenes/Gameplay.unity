@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1759,7 +1759,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 25.798712
+  m_FocalLength: 17.137775
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -1774,7 +1774,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 49.89
+  field of view: 70.00001
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1800,8 +1800,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63062519}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.33822155, y: 0.12679255, z: -0.046045043, w: 0.9313484}
-  m_LocalPosition: {x: -51.046932, y: -1.738183, z: -38.377228}
+  m_LocalRotation: {x: 0.3282171, y: 0.12411074, z: -0.043548487, w: 0.93540025}
+  m_LocalPosition: {x: -41.256466, y: -1.5322981, z: -21.728}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8341,7 +8341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474591727}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.010973184, y: -0.9531771, z: 0.30019847, w: 0.034841586}
+  m_LocalRotation: {x: 0.010619237, y: -0.9564671, z: 0.28952923, w: 0.03508092}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11336,7 +11336,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679149112}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.034975413, y: -0.93499213, z: 0.33954477, w: 0.09631051}
+  m_LocalRotation: {x: 0.032806896, y: -0.9389544, z: 0.32946417, w: 0.09349783}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11569,6 +11569,7 @@ MonoBehaviour:
   bt_Retry: {fileID: 1163310029}
   gamePaused: 0
   spoted: 0
+  pnl_transitionAnim: {fileID: 594510027}
 --- !u!1 &699817433
 GameObject:
   m_ObjectHideFlags: 0
@@ -17770,8 +17771,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973350987}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0014806762, y: -0.995324, z: 0.015458561, w: 0.09533572}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.00041600867, y: -0.99542284, z: 0.0043375283, w: 0.09547008}
+  m_LocalPosition: {x: -0.0000068660797, y: 0, z: -0.000011917717}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29872,7 +29873,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 36, y: 24}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -35451,7 +35452,7 @@ Transform:
   m_GameObject: {fileID: 1995891042}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9994667, z: -0, w: -0.03265631}
-  m_LocalPosition: {x: -51.086468, y: -1.5322981, z: -38.73}
+  m_LocalPosition: {x: -41.256466, y: -1.5322981, z: -21.728}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -38967,7 +38968,7 @@ PrefabInstance:
     - target: {fileID: 569415521564322739, guid: 8b9cf527390d01347a5a82f040c1cbd5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -65.8
+      value: -55.97
       objectReference: {fileID: 0}
     - target: {fileID: 569415521564322739, guid: 8b9cf527390d01347a5a82f040c1cbd5,
         type: 3}
@@ -38977,7 +38978,7 @@ PrefabInstance:
     - target: {fileID: 569415521564322739, guid: 8b9cf527390d01347a5a82f040c1cbd5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.5
+      value: 3.502
       objectReference: {fileID: 0}
     - target: {fileID: 569415521564322739, guid: 8b9cf527390d01347a5a82f040c1cbd5,
         type: 3}
