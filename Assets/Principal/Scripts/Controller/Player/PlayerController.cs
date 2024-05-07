@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
     [Header("Sound")]
     public AudioSource footstep;
 
+
     void Start()
     {
         playerAnimator = GetComponent<Animator>();    
@@ -80,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-       
+        
     }
 
 
