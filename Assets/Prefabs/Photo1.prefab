@@ -324,6 +324,7 @@ MonoBehaviour:
   OnTrigger: 0
   appareilPhotoSlotRef: {fileID: 0}
   cameraSound: {fileID: 0}
+  camPng: {fileID: 0}
   vibrationIntensity: 0.5
   vibrationDuration: 0.5
   playerCollectRef: {fileID: 0}
@@ -340,6 +341,7 @@ GameObject:
   - component: {fileID: 3576218145914059589}
   - component: {fileID: 5216266128412367594}
   - component: {fileID: 2218765829838387723}
+  - component: {fileID: 4429976148014863029}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -430,6 +432,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4429976148014863029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7815203615798889342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9db3d9036a7725e4cae6f45e54521206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
 --- !u!1 &8991600823121355203
 GameObject:
   m_ObjectHideFlags: 0

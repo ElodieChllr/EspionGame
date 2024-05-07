@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1759,7 +1759,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 17.137775
+  m_FocalLength: 25.798712
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -1774,7 +1774,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 70.00001
+  field of view: 49.89
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1800,7 +1800,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63062519}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.45717406, y: -0.11967849, z: -0.062238812, w: -0.87908775}
+  m_LocalRotation: {x: 0.33822155, y: 0.12679256, z: -0.046045046, w: 0.9313484}
   m_LocalPosition: {x: -51.046932, y: -1.738183, z: -38.377228}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8341,7 +8341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474591727}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.010973184, y: -0.9531771, z: 0.30019847, w: 0.034841586}
+  m_LocalRotation: {x: 0.010973185, y: -0.9531771, z: 0.3001985, w: 0.034841586}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13866,6 +13866,11 @@ PrefabInstance:
       propertyPath: camPng
       value: 
       objectReference: {fileID: 555715575}
+    - target: {fileID: 4429976148014863029, guid: d7455ece98e4f6b43844caf52309f58f,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 311562654}
     - target: {fileID: 4504420222050914879, guid: d7455ece98e4f6b43844caf52309f58f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17755,8 +17760,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973350987}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0014804802, y: -0.99532413, z: 0.015456513, w: 0.09533574}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.0014806747, y: -0.995324, z: 0.015458543, w: 0.09533572}
+  m_LocalPosition: {x: -0.000000249015, y: 0, z: 0.0000038065623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22331,6 +22336,11 @@ PrefabInstance:
       propertyPath: playerCollectRef
       value: 
       objectReference: {fileID: 311562663}
+    - target: {fileID: 4429976148014863029, guid: d7455ece98e4f6b43844caf52309f58f,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 311562654}
     - target: {fileID: 4504420222050914879, guid: d7455ece98e4f6b43844caf52309f58f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29931,7 +29941,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 36, y: 24}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -33523,6 +33533,11 @@ PrefabInstance:
       propertyPath: playerCollectRef
       value: 
       objectReference: {fileID: 311562663}
+    - target: {fileID: 4429976148014863029, guid: d7455ece98e4f6b43844caf52309f58f,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 311562654}
     - target: {fileID: 4504420222050914879, guid: d7455ece98e4f6b43844caf52309f58f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41241,6 +41256,11 @@ PrefabInstance:
       propertyPath: playerCollectRef
       value: 
       objectReference: {fileID: 311562663}
+    - target: {fileID: 4429976148014863029, guid: d7455ece98e4f6b43844caf52309f58f,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 311562654}
     - target: {fileID: 4504420222050914879, guid: d7455ece98e4f6b43844caf52309f58f,
         type: 3}
       propertyPath: m_LocalPosition.x
