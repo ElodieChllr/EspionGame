@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         rb_player = GetComponent<Rigidbody>();
         isSwitchPressed = false;
 
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
     }
     private void Awake()
     {
