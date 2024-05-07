@@ -7,15 +7,19 @@ public class MainMenuManager : MonoBehaviour
     public Animator player_Anim;
     public GameObject pnl_Transition;
     public Animator transition;
+
+
+    public bool loadScene = false;
     void Start()
     {
         player_Anim.SetTrigger("MainMenuAnim");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void MyLoadScene()
@@ -32,7 +36,10 @@ public class MainMenuManager : MonoBehaviour
     IEnumerator transitionScene()
     {
         transition.SetTrigger("Transition");
+        loadScene = true;
         yield return new WaitForSeconds(2);
+
+
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 
