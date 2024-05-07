@@ -23,6 +23,7 @@ public class PhotoController : MonoBehaviour
     public AppareilPhotoSlot appareilPhotoSlotRef;
 
     public AudioSource cameraSound;
+    public GameObject camPng;
 
     public float vibrationIntensity = 0.5f;
     public float vibrationDuration = 0.5f;
@@ -32,6 +33,7 @@ public class PhotoController : MonoBehaviour
     [Header("Ref")]
     public PlayerCollect playerCollectRef;
     public PlayerController PlayerController;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +66,7 @@ public class PhotoController : MonoBehaviour
         if (other.CompareTag("Player") )
         {
             appareilPhotoSlotRef = FindAnyObjectByType<AppareilPhotoSlot>();
-
+            camPng.SetActive(true);
             OnTrigger = true;
             pressA.SetActive(true);
         }
@@ -98,6 +100,7 @@ public class PhotoController : MonoBehaviour
     {
         OnTrigger = false;
         pressA.SetActive(false);
+        camPng.SetActive(false);
     }
    
     private IEnumerator Flashbang ()
