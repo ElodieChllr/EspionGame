@@ -40,6 +40,7 @@ public class DialogueManager : MonoBehaviour
 
     public bool canTalkAgain = true;
     public GameObject endButton;
+    public Collider maletteCollider;
 
 
     private Coroutine displayLineCoroutine;
@@ -251,6 +252,7 @@ public class DialogueManager : MonoBehaviour
                 case GiveAppareilPhotoTag:
                     //Instantiate(AppareilPhotoPrefab, Vector3.zero, Quaternion.identity, spawnAppareilPhoto.transform);
                     Instantiate(AppareilPhotoPrefab, spawnAppareilPhoto.position, spawnAppareilPhoto.rotation);
+                    //maletteCollider.enabled = false;
                     break;
 
                 case EndGameTag:

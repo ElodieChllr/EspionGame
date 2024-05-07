@@ -27,6 +27,12 @@ public class MainMenuManager : MonoBehaviour
         StartCoroutine(transitionScene());
     }
 
+    public void LoadOtherScene(int scene)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
+    }
+
+
     public void button_exit()
     {
         Application.Quit();

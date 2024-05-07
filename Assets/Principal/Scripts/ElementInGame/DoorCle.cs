@@ -13,13 +13,18 @@ public class DoorCle : MonoBehaviour
     public bool OnTrigger = false;
 
 
-
+    public PhotoController photoControllerRef1;
+    public PhotoController photoControllerRef2;
+    public PhotoController photoControllerRef3;
     public void OnKeyUsed()
     {
-        doorSound.Play();
-        endDoor_Anim.SetTrigger("OpenDoor");
-        txt_objectif2.SetActive(false);
-        txt_objectif3.SetActive(true);
+        if(photoControllerRef1.IsTakenPhoto == true && photoControllerRef2.IsTakenPhoto == true && photoControllerRef3.IsTakenPhoto == true)
+        {
+            doorSound.Play();
+            endDoor_Anim.SetTrigger("OpenDoor");
+            txt_objectif2.SetActive(false);
+            txt_objectif3.SetActive(true);
+        }        
     }
 
     private void OnTriggerEnter(Collider other)
